@@ -28,7 +28,8 @@ puts 'Creating Houses'
 4.times do |house|
   house = House.create(
     name: Faker::Movies::HarryPotter.location,
-    email: Faker::Internet.free_email
+    email: Faker::Internet.free_email,
+    house_balance: 0
   )
   puts "Created #{house.name}"
 end
@@ -37,8 +38,8 @@ puts 'Creating Memberships'
 
 16.times do |membership|
   membership = Membership.new(
-    user:User.all.sample,
-    house: House.all.sample
+    user_id: User.ids.sample,
+    house_id: House.ids.sample
   )
 end
 puts "Created membership"
