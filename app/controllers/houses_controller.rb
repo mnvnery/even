@@ -1,13 +1,16 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
+  # /houses
   def index
     @houses = House.all
   end
 
+  # /houses/:id
   def show
   end
 
+# /houses/:new
   def new
     @house = House.new
   end
@@ -21,12 +24,12 @@ class HousesController < ApplicationController
     end
   end
 
+ # houses/1/edit
   def edit
   end
 
   def update
-    @house = house.update(house_params)
-    if @house.save
+    if @house.update(house_params)
       redirect_to house_path(@house)
     else
       render :new
@@ -35,7 +38,7 @@ class HousesController < ApplicationController
 
   def destroy
     @house.destroy
-    redirect_to house_path
+    redirect_to houses_path
   end
 
   private
