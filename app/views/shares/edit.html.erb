@@ -1,0 +1,12 @@
+
+
+  <%= simple_form_for (@share) do |f| %>
+  <h1>   <%= @share.bill.name %> </h1>
+   <%= f.input :amount%>
+    <%= f.input :paid%>
+
+
+    <%= f.submit "Change Amount You Owe", class: "btn btn-pink w-100"%>
+
+  <% end%>
+
