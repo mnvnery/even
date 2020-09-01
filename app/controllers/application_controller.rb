@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(resource)
-    after_sign_up_path(:create_house)
+
   end
 end
