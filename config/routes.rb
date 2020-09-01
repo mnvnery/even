@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources( :bills, {only: [:edit, :update, :delete]})
+
+  resources :shares, only: [:edit, :update]
 end
