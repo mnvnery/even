@@ -1,0 +1,34 @@
+<div class="booking-container p-3 mx-auto mt-5">
+
+  <%= simple_form_for (@bill) do |f| %>
+    <h6>Due Date of Bill</h6>
+    <%= f.datetime_local_field :due_date, class: 'date-field' %>
+
+    <%= f.input :name%>
+    <%= f.input :category%>
+    <%= f.input :amount%>
+
+    <%= f.submit "Edit Booking", class: "btn btn-pink w-100"%>
+
+  <% end%>
+</div>
+
+<div>
+  <%= link_to "🗑",
+  bill_path(@bill),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+</div>
+
+<%= link_to "Back", house_path(@bill.house) %>
+
+<!--   create_table "bills", force: :cascade do |t|
+    t.bigint "house_id", null: false
+    t.integer "amount"
+    t.date "due_date" x
+    t.string "name" x
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["house_id"], name: "index_bills_on_house_id"
+ -->
