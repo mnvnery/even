@@ -8,4 +8,4 @@ Rails.application.routes.draw do
   end
 
   resources( :bills, {only: [:edit, :update, :delete]})
-
+end

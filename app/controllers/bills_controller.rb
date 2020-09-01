@@ -12,7 +12,7 @@ class BillsController < ApplicationController
     @bill.house = @house
     if @bill.save
       # here is where the share creation logic will go
-      redirect_to house_path
+      redirect_to house_path(@bill.house)
     else
       render :new
     end
