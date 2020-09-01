@@ -14,24 +14,33 @@ House.destroy_all
 
 puts 'Creating Users'
 
-30.times do |user|
+16.times do |user|
   user = User.create(
-  name: Faker::Name.name,
-  email: Faker::Internet.free_email,
-  password: "test123"
+    name: Faker::Name.name,
+    email: Faker::Internet.free_email,
+    password: "test123"
   )
   puts "Created #{user.name}"
 end
 
 puts 'Creating Houses'
 
-5.times do |house|
+4.times do |house|
   house = House.create(
-  name: Faker::Movies::HarryPotter.location,
-  email: Faker::Internet.free_email,
-
+    name: Faker::Movies::HarryPotter.location,
+    email: Faker::Internet.free_email
   )
   puts "Created #{house.name}"
 end
+
+puts 'Creating Memberships'
+
+16.times do |membership|
+  membership = Membership.new(
+    user:User.all.sample,
+    house: House.all.sample
+  )
+end
+puts "Created membership"
 
 puts "Finished!"
