@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Destroying Users'
+User.destroy_all
+
+puts 'Destroying Houses'
+House.destroy_all
+
+puts 'Creating Users'
+
+30.times do |user|
+  user = User.create(
+  name: Faker::Name.name,
+  email: Faker::Internet.free_email,
+  password: "test123"
+  )
+  puts "Created #{user.name}"
+end
+
+puts 'Creating Houses'
+
+5.times do |house|
+  house = House.create(
+  name: Faker::Movies::HarryPotter.location,
+  email: Faker::Internet.free_email,
+
+  )
+  puts "Created #{house.name}"
+end
+
+puts "Finished!"
