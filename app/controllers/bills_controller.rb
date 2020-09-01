@@ -1,2 +1,3 @@
 class BillsController < ApplicationController
+
 end

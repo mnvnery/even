@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "SF Pro Display Regular", "sans-serif";
+$headers-font: "SF Pro Display Semibold", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +14,18 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+@font-face {
+   font-family: 'SF Pro Display Semibold';
+   src: url('/assets/SF-Pro-Display-Semibold.otf')
+}
+
+@font-face {
+   font-family: 'SF Pro Display Regular';
+   src: url('/assets/SF-Pro-Display-Regular.otf')
+}
+
+@font-face {
+   font-family: 'SF Pro Display Light';
+   src: url('/assets/SF-Pro-Display-Light.otf')
+}
