@@ -29,6 +29,7 @@ gem 'wicked'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'faker'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
