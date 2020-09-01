@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :after_signup
 
   resources :houses do
+    collection do
+      get :onboarding
+    end
     resources( :bills, {only: [:new, :create]})
     # Method (symbol, hash { key/symbol value/array})
   end

@@ -8,4 +8,5 @@ class AfterSignupController < ApplicationController
     @house = House.new
     render_wizard
   end
+
 end
