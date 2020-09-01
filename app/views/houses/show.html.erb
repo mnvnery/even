@@ -1,0 +1,18 @@
+<h1>Show page</h1>
+
+<h2><%= @house.name %></h2>
+
+
+<ul>
+  <li> Name: <%= @house.name %> </li>
+  <li> Email: <%= @house.email %> </li>
+  <li> House balance: <%= @house.house_balance %>€</li>
+</ul>
+
+<%= link_to "Edit a House", edit_house_path(@house)%>
+
+
+<%= link_to "Delete a House", house_path(@house), method: :delete %>
+<!--   <i class="fas fa-trash-alt"></i> <i class="fas fa-edit"></i> -->
+
+<%= link_to "Go back", houses_path %>
