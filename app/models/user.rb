@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :houses, through: :memberships
   has_many :shares
   has_many :bills, through: :shares
+
+  validates :name, :email, presence: true
 end

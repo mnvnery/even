@@ -37,10 +37,10 @@ end
 puts 'Creating Memberships'
 
 16.times do |membership|
-  membership = Membership.new(
+  membership = Membership.create(
     user_id: User.ids.sample,
     house_id: House.ids.sample
-  )
+  )House
 end
 puts "Created membership"
 
