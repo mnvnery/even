@@ -1,0 +1,5 @@
+<h2>Have you named your house yet?</h2>
+<%= form_for @house, url: wizard_path, method: :post do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Next" %>
+<% end %>
