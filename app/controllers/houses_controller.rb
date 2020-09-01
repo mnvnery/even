@@ -41,6 +41,11 @@ class HousesController < ApplicationController
     redirect_to houses_path
   end
 
+  def onboarding
+    if current_user.houses.length > 0
+      redirect_to dashboard_path
+  end
+
   private
 
   def set_house
