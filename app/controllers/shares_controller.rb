@@ -1,5 +1,12 @@
 class SharesController < ApplicationController
 
+
+  def index
+    @shares = Share.where(user: current_user)
+    @house = House.find(params[:house_id])
+  end
+
+
   def edit
     @share = Share.find(params[:id])
   end
