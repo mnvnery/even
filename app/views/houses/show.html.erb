@@ -2,12 +2,18 @@
 
 <h2><%= @house.name %></h2>
 
-
 <ul>
   <li> Name: <%= @house.name %> </li>
   <li> Email: <%= @house.email %> </li>
   <li> House balance: <%= @house.house_balance %>€</li>
 </ul>
+
+<ul>
+  <% @house.users.each do |user| %>
+  <li><%= user.name %></li>
+  <% end %>
+</ul>
+
 
 <%= link_to "Edit a House", edit_house_path(@house)%>
 
