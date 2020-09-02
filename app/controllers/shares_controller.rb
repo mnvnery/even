@@ -13,7 +13,6 @@ class SharesController < ApplicationController
     end
   end
 
-
 private
 
   def share_params
