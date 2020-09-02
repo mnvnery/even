@@ -1,5 +1,4 @@
 class SharesController < ApplicationController
-
   def edit
     @share = Share.find(params[:id])
   end
@@ -12,7 +11,6 @@ class SharesController < ApplicationController
       render :new
     end
   end
-
 
 private
 
