@@ -1,5 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
+  layout "signup", only: [:onboarding]
 
   # /houses
   def index
@@ -44,6 +45,10 @@ class HousesController < ApplicationController
   def onboarding
     if current_user.houses.length > 0
       redirect_to dashboard_path
+    else
+      @house = House.new
+      # @membership = Membership.create(user_id: current_user.id, house_id: @house.id)
+    end
   end
 
   private
@@ -53,7 +58,6 @@ class HousesController < ApplicationController
   end
 
   def house_params
-    params.require(:house).permit(:house_balance, :name, :email)
+    params.require(:house).permit(:name)
   end
-
 end
