@@ -12,12 +12,12 @@ Rails.application.routes.draw do
     collection do
       get :onboarding
     end
-    resources( :bills, {only: [:new, :create]})
+    resources( :bills, {only: [:edit, :update, :new, :create]})
     # Method (symbol, hash { key/symbol value/array})
     resources :shares, only: [:index]
   end
 
-  resources( :bills, {only: [:edit, :update, :delete]})
+  resources( :bills, {only: [:destroy]})
 
   resources :shares, only: [:edit, :update]
 end
