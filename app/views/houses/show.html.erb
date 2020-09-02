@@ -8,17 +8,24 @@
   <li> House balance: <%= @house.house_balance %>€</li>
 </ul>
 
+<h4>House Members</h4>
+
 <ul>
   <% @house.users.each do |user| %>
   <li><%= user.name %></li>
   <% end %>
 </ul>
 
+<ul>
+  <li><%= link_to "Edit a House", edit_house_path(@house)%></li>
+  <li><%= link_to "Delete a House", house_path(@house), method: :delete %></li>
+  <li><%= link_to "Go back", houses_path %></li>
+</ul>
 
-<%= link_to "Edit a House", edit_house_path(@house)%>
+<!-- Try to generate the link using the rails routes prefix
+"http://localhost:3000/users/sign_up?house_id=#{house.id}"
+"new_user_registration" + "?house_id=#{house.id}" -->
 
-
-<%= link_to "Delete a House", house_path(@house), method: :delete %>
+<p>To invite new housemates send this link: http://localhost:3000/users/sign_up?house_id=<%= @house.id %></p>
 <!--   <i class="fas fa-trash-alt"></i> <i class="fas fa-edit"></i> -->
 
-<%= link_to "Go back", houses_path %>
