@@ -7,7 +7,7 @@
         <%= f.input :name %>
         </div>
         <div>
-        <%= f.input :due_date %>
+        <%= f.input :due_date, html5:true %>
         </div>
         <div>
         <%= f.input :category %>
@@ -15,7 +15,13 @@
          <div>
         <%= f.input :amount %>
         </div>
-        <%= f.submit "Book", class: "btn btn-primary"%>
+        <div>
+          <% @house.memberships.each do | membership | %>
+          <div class="d-flex"> <%= membership.user.name %> <input class="form-control numeric integer optional" type="number" name="share[<%=membership.user.id%>]"> </div>
+          <% end %>
+        </div>
+
+        <%= f.submit "Add", class: "btn btn-primary"%>
       </div>
 
     <% end%>
