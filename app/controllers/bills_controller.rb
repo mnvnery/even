@@ -14,11 +14,11 @@ class BillsController < ApplicationController
       # find share using user_id and @bill_id
       # if amount equals to 0 and there is a share deleted it
       # create or update share (if)
+
         if amount.to_i > 0
           Share.create(user_id: user_id, amount: amount.to_i, bill_id: @bill.id)
         end
       end
-      # here is where the share creation logic will go
       redirect_to house_path(@bill.house)
     else
       render :new
