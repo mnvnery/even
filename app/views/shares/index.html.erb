@@ -1,0 +1,44 @@
+<h2 class="text-center">Even</h2>
+<h3 class="text-center"> House: <%= @house.name  %> </h3>
+
+
+<div class="container my-5 py-5 border ">
+  <p></p>
+  <div class="row">
+    <%  %>
+    <% @house.memberships.each do |membership| %>
+      <div class="col text-center">
+        <div> 🔸 </div>
+        <div> 🔻 </div>
+        <div> <%= membership.user.name %> </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= link_to "Even up ->", house_shares_path%>
+<div class="mx-2">
+  <% @shares.each do |share| %>
+  <% due_date = share.bill.due_date.strftime("%b %d") %>
+    <div class="border p-2 mb-2">
+      <p class="text-muted mb-0"> <%= due_date %> </p>
+      <div class="row">
+        <ul class="list-unstyled mb-0 col-6">
+          <%= link_to share.bill.name,  edit_bill_path(share.bill_id) %>
+        </ul>
+        <ul class="list-unstyled mb-0 col-2">
+          🔻
+        </ul>
+        <ul class="list-unstyled mb-0 col-4 text-right pr-5">
+          $<%= share.amount %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<div class="my-5 py-5"></div>
+

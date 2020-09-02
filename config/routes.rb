@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     resources( :bills, {only: [:new, :create]})
     # Method (symbol, hash { key/symbol value/array})
+    resources :shares, only: [:index]
   end
 
   resources( :bills, {only: [:edit, :update, :delete]})
