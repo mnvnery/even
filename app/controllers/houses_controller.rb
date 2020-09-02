@@ -47,6 +47,7 @@ class HousesController < ApplicationController
       redirect_to dashboard_path
     else
       @house = House.new
+      # @membership = Membership.create(user_id: current_user.id, house_id: @house.id)
     end
   end
 
