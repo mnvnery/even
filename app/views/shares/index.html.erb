@@ -1,5 +1,4 @@
-<h2 class="text-center">Even</h2>
-<h3 class="text-center"> House: <%= @house.name  %> </h3>
+<h3 class="text-center"> <%= @house.name  %> </h3>
 
 
 <div class="container my-5 py-5 border ">
@@ -25,7 +24,7 @@
       <p class="text-muted mb-0"> <%= due_date %> </p>
       <div class="row">
         <ul class="list-unstyled mb-0 col-6">
-          <%= link_to share.bill.name,  edit_bill_path(share.bill_id) %>
+          <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
         </ul>
         <ul class="list-unstyled mb-0 col-2">
           🔻

@@ -1,16 +1,30 @@
 <div class="booking-container p-3 mx-auto mt-5">
 
-  <%= simple_form_for (@bill) do |f| %>
-    <h6>Due Date of Bill</h6>
-    <%= f.datetime_local_field :due_date, class: 'date-field' %>
+  <%= simple_form_for [@house, @bill] do |f| %>
 
-    <%= f.input :name%>
-    <%= f.input :category%>
-    <%= f.input :amount%>
+      <div class="">
+        <div >
+        <%= f.input :name %>
+        </div>
+        <div>
+        <%= f.input :due_date, html5:true %>
+        </div>
+        <div>
+        <%= f.input :category %>
+        </div>
+         <div>
+        <%= f.input :amount %>
+        </div>
+        <div>
+          <% @house.memberships.each do | membership | %>
+          <div class="d-flex"> <%= membership.user.name %> <input class="form-control numeric integer optional" type="number" name="share[<%=membership.user.id%>]" value="<%= @bill.get_share_amount_by_user(membership.user) %>"> </div>
+          <% end %>
+        </div>
 
-    <%= f.submit "Edit Booking", class: "btn btn-pink w-100"%>
+        <%= f.submit "Add", class: "btn btn-primary"%>
+      </div>
 
-  <% end%>
+    <% end%>
 </div>
 
 <div>
@@ -22,13 +36,3 @@
 
 <%= link_to "Back", house_path(@bill.house) %>
 
-<!--   create_table "bills", force: :cascade do |t|
-    t.bigint "house_id", null: false
-    t.integer "amount"
-    t.date "due_date" x
-    t.string "name" x
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["house_id"], name: "index_bills_on_house_id"
- -->
