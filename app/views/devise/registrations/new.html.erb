@@ -1,9 +1,9 @@
 <%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
 
-
 <% if params[:house_id] %>
   <h2><%= @house.name %></h2>
 <% end %>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="card-container">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.48 22.74"><title>half-circle-red</title><path d="M45.48,0A22.74,22.74,0,0,1,0,0" fill='#F8CF61'/></svg>
@@ -27,7 +27,7 @@
       </div>
   </div>
     <div class="card-bottom">
-      <p>Have an account? <%= link_to "Log in", new_session_path(resource_name) %></p>
+      <p>Have an account? <%= link_to "Log in", new_session_path(resource_name) + (params[:house_id] ? "?house_id=#{params[:house_id]}" : "") %></p>
       <div class="form-actions next-button-container">
         <%= f.button :submit, "next", class: 'btn btn-primary btn-sm' %>
       </div>

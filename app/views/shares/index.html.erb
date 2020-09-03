@@ -10,10 +10,9 @@
           <% if %>
             <% share.bill.house == @house %>
             <% if membership.user == share.user %>
-              <% symbol_file = @symbol_map[share.bill.category.to_sym] %>
-            <% end %>
-            <% unless symbol_file.nil?%>
-              <div><%= image_tag symbol_file, alt: "blue-logo", style: "width: 30px"%></div>
+                  <% if @icon_names.include?(share.bill.category)%>
+                    <div> <%= image_tag @symbols_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 30px"%></div>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
@@ -34,9 +33,9 @@
         <div class='notification-card'>
           <p class="text-muted mb-0"> <%= due_date %> days</p>
           <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
-          <% if share.bill.category != ""%>
-            <%= image_tag @symbol_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 50px" %>
-          <% end %>
+            <% if @icon_names.include?(share.bill.category)%>
+              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 50px" %>
+            <% end %>
           $<%= share.amount %>
         </div>
     <% end %>

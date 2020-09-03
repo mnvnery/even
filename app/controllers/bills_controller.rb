@@ -64,3 +64,42 @@ private
   end
 
 end
+
+
+
+  # def create
+  #   @house = House.find(params[:house_id])
+  #   @bill = Bill.new(bill_params)
+  #   @bill.house = @house
+
+  #   if params["commit"] == "Add"
+  #     add_bill
+  #   else
+  #     split_bill
+  #   end
+  # end
+
+  # def split_bill
+  #   if @bill.save
+  #     params[:share].each do |user_id, amount|
+  #     split = params["bill"]["amount"].to_i / params["share"].keys.count
+  #     Share.create(user_id: user_id, amount: split, bill_id: @bill.id)
+  #     end
+  #     redirect_to house_shares_path(@bill.house)
+  #   else
+  #     render :new
+  #   end
+  # end
+
+  # def add_bill
+  #   if @bill.save
+  #     params[:share].each do |user_id, amount|
+  #       if amount.to_i > 0
+  #         Share.create(user_id: user_id, amount: amount.to_i, bill_id: @bill.id)
+  #       end
+  #     end
+  #     redirect_to house_shares_path(@bill.house)
+  #   else
+  #     render :new
+  #   end
+  # end
