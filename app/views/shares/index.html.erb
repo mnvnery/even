@@ -22,32 +22,25 @@
   <% end %>
 </div>
 
-<%= link_to "Even up ->", house_shares_path%>
-<div class='notification-card'>
+<%= link_to house_shares_path do %>
+  <div class="even-up-button">Even up &nbsp; →</div>
+<% end %>
+
+
   <% @shares.each do |share| %>
     <% if share.bill.house == @house %>
-      <% due_date = share.bill.due_date.strftime("%b %d") %>
-      <div class="border p-2 mb-2">
-        <div class="row">
-          <ul class="list-unstyled mb-0 col-6">
-            <div>
-              <p class="text-muted mb-0"> <%= due_date %> </p>
-              <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
-            </div>
-          </ul>
-          <ul class="list-unstyled mb-0 col-2">
+      <% due_date = (share.bill.due_date - Date.today).to_i %>
+        <div class='notification-card'>
+          <p class="text-muted mb-0"> <%= due_date %> days</p>
+          <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
             <% if @icon_names.include?(share.bill.category)%>
               <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 50px" %>
             <% end %>
-          </ul>
-          <ul class="list-unstyled mb-0 col-4 text-right pr-5">
-            $<%= share.amount %>
-          </ul>
+          $<%= share.amount %>
         </div>
-      </div>
     <% end %>
   <% end %>
-</div>
+
 
 <div class="my-5 py-5"></div>
 
