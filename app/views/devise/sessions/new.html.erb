@@ -23,7 +23,7 @@
       </div>
   </div>
   <div class="card-bottom">
-    <%= link_to "Sign up", new_registration_path(resource_name) + (params[:house_id] ? "?house_id=#{params[:house_id]}" : "") %></p>, class: 'btn btn-info btn-sm' %>
+    <%= link_to "Sign up", new_registration_path(resource_name) + (params[:house_id] ? "?house_id=#{params[:house_id]}" : ""), class: 'btn btn-info btn-sm' %>
     <div class="form-actions next-button-container">
         <%= f.button :submit, "Log in", class: 'btn btn-primary btn-sm' %>
     </div>
