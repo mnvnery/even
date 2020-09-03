@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_variables
-    @symbol_map = {water: 'blue-square.svg', rent: 'green-halfcircle.svg', gas: 'red-halfcircle.svg', internet: 'sand-triangle.svg', electricity: 'yellow-circle.svg'}
+    @icon_names = ['water', 'rent', 'internet', 'electricity', 'gas']
+    @symbols_map = { water: 'blue-square.svg', rent: 'green-halfcircle.svg', gas: 'red-halfcircle.svg', internet: 'sand-triangle.svg', electricity: 'yellow-circle.svg' }
+    @icons_map = { water: 'water.svg', rent: 'rent.svg', internet: 'internet.svg', electricity: 'electricity.svg', gas: 'gas.svg' }
   end
 
 
