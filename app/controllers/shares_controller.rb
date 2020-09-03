@@ -1,4 +1,5 @@
 class SharesController < ApplicationController
+  layout "navbar"
 
   def index
     @shares = Share.where(user: current_user)
