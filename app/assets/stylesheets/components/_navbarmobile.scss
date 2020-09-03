@@ -20,9 +20,10 @@ main {
   vertical-align: middle;
   box-shadow: 0 0 10px 0 rgba(35, 45, 59, 0.4);
 }
-.button p {
+.button a {
   font-size: 30px;
   font-weight: bolder;
+  text-decoration: none;
 }
 
 .button.small {
