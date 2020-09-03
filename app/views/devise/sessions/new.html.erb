@@ -1,26 +1,25 @@
 <%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
-<div class="card-container">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.48 22.74"><title>half-circle-red</title><path d="M45.48,0A22.74,22.74,0,0,1,0,0" fill='#F8CF61'/></svg>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-margins">
-      <div class="form-inputs">
-        <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-        <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "current-password" } %>
-        <!-- <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %> -->
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="card-container">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.48 22.74"><title>half-circle-red</title><path d="M45.48,0A22.74,22.74,0,0,1,0,0" fill='#F8CF61'/></svg>
+      <div class="form-margins">
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <!-- <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %> -->
+        </div>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), style: 'color: $dark-blue' %>
       </div>
-      <%= link_to "Forgot your password?", new_password_path(resource_name), style: 'color: $dark-blue' %>
-    </div>
-</div>
-<div class="card-bottom">
-  <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-info btn-sm' %>
-  <div class="form-actions next-button-container">
-      <%= f.button :submit, "Log in", class: 'btn btn-primary btn-sm' %>
   </div>
-</div>
-
-  <% end %>
+  <div class="card-bottom">
+    <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-info btn-sm' %>
+    <div class="form-actions next-button-container">
+        <%= f.button :submit, "Log in", class: 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
+<% end %>
