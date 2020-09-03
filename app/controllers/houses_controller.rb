@@ -19,6 +19,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(house_params)
     if @house.save
+      @membership = Membership.create(user: current_user, house: @house)
       redirect_to house_path(@house)
     else
       render :new
@@ -47,7 +48,6 @@ class HousesController < ApplicationController
       redirect_to dashboard_path
     else
       @house = House.new
-      # @membership = Membership.create({ user: resource, house: @house })
     end
   end
 

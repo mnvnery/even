@@ -1,0 +1,44 @@
+.logo-top {
+  width: 150px;
+  margin: 2rem;
+}
+
+.card-container {
+  margin: 2rem;
+  background: $light-sand;
+  color: $dark-blue;
+  padding: 2rem;
+  border-radius: 30px;
+  object-fit: cover;
+  object-position: 0 -50px;
+}
+.card-container svg {
+  margin-top: -2rem;
+  padding-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+.card-bottom{
+  display: flex;
+  margin: 2rem;
+  justify-content: space-between;
+}
+
+.card-container a {
+  color: $dark-blue;
+}
+
+.form-inputs input{
+  background-color: $smooth-yellow;
+  border: none;
+}
+
+.form-inputs input:focus{
+  background-color: $smooth-yellow;
+  border: none;
+}
+
+.form-margins{
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+}

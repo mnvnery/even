@@ -4,6 +4,7 @@
 // Define fonts for body and headers
 $body-font: "SF Pro Display Regular", "sans-serif";
 $headers-font: "SF Pro Display Semibold", "sans-serif";
+$title-font: "SF Pro Display Medium", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -23,6 +24,11 @@ $headers-font: "SF Pro Display Semibold", "sans-serif";
 @font-face {
    font-family: 'SF Pro Display Regular';
    src: url('/assets/SF-Pro-Display-Regular.otf')
+}
+
+@font-face {
+   font-family: 'SF Pro Display Medium';
+   src: url('/assets/SF-Pro-Display-Medium.otf')
 }
 
 @font-face {
