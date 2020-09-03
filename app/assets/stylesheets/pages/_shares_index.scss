@@ -1,0 +1,19 @@
+.graph-container{
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.graph-element {
+  text-align: center
+}
+.graph-element-name {
+  background-color: $medium-blue;
+  padding: 0 1rem;
+  border-radius: 15px;
+  margin-top: 0.7rem;
+}
+
+.notification-card {
+
+}

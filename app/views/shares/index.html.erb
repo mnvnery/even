@@ -2,43 +2,29 @@
 <h3 class="text-center"> <%= @house.name  %> </h3>
 
 
-<div class="container my-5 py-5 border ">
-  <p></p>
-  <div class="row">
-    <%  %>
-    <% @house.memberships.each do |membership| %>
-      <div class="col text-center">
-        <table style="height: 100px;">
-         <tbody>
-          <tr>
-            <td class="align-middle">
-              <!-- Create Symbols -->
-              <div>
-                  <% @shares_all.each do |share| %>
-                    <% if %>
-                      <% share.bill.house == @house %>
-                      <% if membership.user == share.user %>
-                        <% symbol_file = @symbol_map[share.bill.category.to_sym] %>
-                      <% end %>
-                      <% unless symbol_file.nil?%>
-                        <div class="align-middle"> <%= image_tag symbol_file, alt: "blue-logo", style: "width: 30px"%> </div>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                  <!-- Create Name Below the Symbols -->
-                  <div> <%= membership.user.name.split(' ')[0] %> </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-  </div>
+
+<div class="graph-container">
+  <% @house.memberships.each do |membership| %>              <!-- Create Symbols -->
+    <div class="graph-element">
+        <% @shares_all.each do |share| %>
+          <% if %>
+            <% share.bill.house == @house %>
+            <% if membership.user == share.user %>
+              <% symbol_file = @symbol_map[share.bill.category.to_sym] %>
+            <% end %>
+            <% unless symbol_file.nil?%>
+              <div><%= image_tag symbol_file, alt: "blue-logo", style: "width: 30px"%></div>
+            <% end %>
+          <% end %>
+        <% end %>
+        <!-- Create Name Below the Symbols -->
+        <div class="graph-element-name"><%= membership.user.name.split(' ')[0] %></div>
+    </div>
+  <% end %>
 </div>
 
 <%= link_to "Even up ->", house_shares_path%>
-<div class="mx-2">
+<div class='notification-card'>
   <% @shares.each do |share| %>
     <% if share.bill.house == @house %>
       <% due_date = share.bill.due_date.strftime("%b %d") %>

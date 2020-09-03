@@ -10,7 +10,7 @@
         <%= f.input :due_date, html5:true %>
         </div>
         <div>
-        <%= f.input :category %>
+        <%= f.input :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
         </div>
          <div>
         <%= f.input :amount %>
