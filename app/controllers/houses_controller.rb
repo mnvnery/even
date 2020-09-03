@@ -20,7 +20,7 @@ class HousesController < ApplicationController
     @house = House.new(house_params)
     if @house.save
       @membership = Membership.create(user: current_user, house: @house)
-      redirect_to house_path(@house)
+      redirect_to onboarding_link_house_path(@house)
     else
       render :new
     end
@@ -49,6 +49,10 @@ class HousesController < ApplicationController
     else
       @house = House.new
     end
+  end
+
+  def onboarding_link
+    @house = House.find(params[:id])
   end
 
   private

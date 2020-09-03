@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     collection do
       get :onboarding
     end
+
+    member do
+      get :onboarding_link
+    end
+
     resources( :bills, {only: [:edit, :update, :new, :create]})
     # Method (symbol, hash { key/symbol value/array})
     resources :shares, only: [:index]
