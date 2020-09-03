@@ -1,0 +1,27 @@
+.house-input .form-control {
+  background-color: $smooth-green;
+  border: none;
+}
+
+.house-input .form-control:focus {
+  background-color: $smooth-green;
+  border: none;
+}
+
+.house-input .form-control::placeholder {
+  color: $light-sand;
+  font-family: 'SF Pro Display Light';
+}
+
+.align-button-right {
+  text-align: right;
+  margin: 2rem;
+}
+
+.svg-house {
+  margin: 0 1rem;
+}
+
+.question {
+  margin-bottom: 1.5rem;
+}
