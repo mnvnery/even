@@ -1,4 +1,5 @@
 class BillsController < ApplicationController
+  layout "navbar"
 
   def new
     @bill = Bill.new
