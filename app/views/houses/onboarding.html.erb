@@ -1,6 +1,18 @@
-<h2>Have you named your house?</h2>
+<%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
+
 
 <%= simple_form_for(@house) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit 'Next' %>
+<div class="card-container house-input">
+  <div class="svg-house">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 16.6" style='margin-bottom: 3rem;'><title>green-houserectangle</title><rect x="8.3" y="-8.3" width="16.6" height="33.2" transform="translate(24.9 -8.3) rotate(90)" fill="#81b3a3"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 23.47" style='transform: rotate(180deg);'><title>triangle-sand</title><polyline points="0 23.48 23.48 0 46.95 23.48" fill="#559CAD"/></svg>
+  </div>
+  <div class="form-margins">
+    <h5 class="question">Have you named your house yet?</h5>
+    <%= f.input :name, label: false, placeholder: 'name it now!' %>
+  </div>
+</div>
+  <div class="align-button-right">
+    <%= f.submit 'next', class: 'btn btn-primary btn-sm' %>
+  </div>
 <% end %>
