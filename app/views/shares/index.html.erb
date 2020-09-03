@@ -34,7 +34,7 @@
           <p class="text-muted mb-0"> <%= due_date %> days</p>
           <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
             <% if @icon_names.include?(share.bill.category)%>
-              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 50px" %>
+              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px" %>
             <% end %>
           $<%= share.amount %>
         </div>
