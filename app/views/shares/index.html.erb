@@ -8,33 +8,59 @@
     <%  %>
     <% @house.memberships.each do |membership| %>
       <div class="col text-center">
-        <div> 🔸 </div>
-        <div> 🔻 </div>
-        <div> <%= membership.user.name %> </div>
+        <table style="height: 100px;">
+         <tbody>
+          <tr>
+            <td class="align-middle">
+              <!-- Create Symbols -->
+              <div>
+                  <% @shares_all.each do |share| %>
+                    <% if %>
+                      <% share.bill.house == @house %>
+                      <% if membership.user == share.user %>
+                        <% symbol_file = @symbol_map[share.bill.category.to_sym] %>
+                      <% end %>
+                      <% unless symbol_file.nil?%>
+                        <div class="align-middle"> <%= image_tag symbol_file, alt: "blue-logo", style: "width: 30px"%> </div>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                  <!-- Create Name Below the Symbols -->
+                  <div> <%= membership.user.name.split(' ')[0] %> </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     <% end %>
   </div>
 </div>
 
-
 <%= link_to "Even up ->", house_shares_path%>
 <div class="mx-2">
   <% @shares.each do |share| %>
-  <% due_date = share.bill.due_date.strftime("%b %d") %>
-    <div class="border p-2 mb-2">
-      <p class="text-muted mb-0"> <%= due_date %> </p>
-      <div class="row">
-        <ul class="list-unstyled mb-0 col-6">
-          <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
-        </ul>
-        <ul class="list-unstyled mb-0 col-2">
-          🔻
-        </ul>
-        <ul class="list-unstyled mb-0 col-4 text-right pr-5">
-          $<%= share.amount %>
-        </ul>
+    <% if share.bill.house == @house %>
+      <% due_date = share.bill.due_date.strftime("%b %d") %>
+      <div class="border p-2 mb-2">
+        <div class="row">
+          <ul class="list-unstyled mb-0 col-6">
+            <div>
+              <p class="text-muted mb-0"> <%= due_date %> </p>
+              <%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %>
+            </div>
+          </ul>
+          <ul class="list-unstyled mb-0 col-2">
+            <% if share.bill.category != ""%>
+              <%= image_tag @symbol_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 50px" %>
+            <% end %>
+          </ul>
+          <ul class="list-unstyled mb-0 col-4 text-right pr-5">
+            $<%= share.amount %>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
