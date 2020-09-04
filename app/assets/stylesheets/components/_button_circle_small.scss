@@ -1,19 +1,60 @@
-.round-button {
+.round-small-you {
     display:block;
-    width:80px;
-    height:80px;
-    line-height:80px;
-    border: 2px solid #f5f5f5;
+    width:35px;
+    height:35px;
+    border: 2px solid $light-sand;
     border-radius: 50%;
-    color:$light-sand;
-    text-align:center;
-    text-decoration:none;
+    color:$medium-blue;
+    text-align: center;
+    text-decoration: none;
     background: $light-sand;
-    box-shadow: 0 0 3px $dark-blue;
-    font-size:20px;
-    font-weight: bold;
+    box-shadow: 3px 3px 3px $medium-blue;
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
 
-.round-button:hover {
-    background: #777555;
+.round-small-you svg {
+  fill: $medium-blue;
+  margin-top: 3px;
 }
+
+.round-small-member {
+    display:block;
+    width:35px;
+    height:35px;
+    border: 2px solid $smooth-green;
+    border-radius: 50%;
+    color:$medium-blue;
+    text-align: center;
+    text-decoration: none;
+    background: $smooth-green;
+    box-shadow: 3px 3px 3px $medium-blue;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.round-small-member svg {
+  fill: $medium-blue;
+  margin-top: 3px;
+}
+
+.round-small-settings {
+    display:block;
+    width:35px;
+    height:35px;
+    border: 2px solid $smooth-salmon;
+    border-radius: 50%;
+    color:$medium-blue;
+    text-align: center;
+    text-decoration: none;
+    background: $smooth-salmon;
+    box-shadow: 3px 3px 3px $medium-blue;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.round-small-settings svg {
+  fill: $medium-blue;
+  margin-top: 3px;
+}
+
