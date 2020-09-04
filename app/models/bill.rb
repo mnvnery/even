@@ -1,6 +1,6 @@
 class Bill < ApplicationRecord
   belongs_to :house
-  has_many :shares
+  has_many :shares, dependent: :destroy
   has_many :users, through: :shares
 
   def get_share_by_user(user)
