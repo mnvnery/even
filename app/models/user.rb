@@ -10,4 +10,10 @@ class User < ApplicationRecord
   has_many :bills, through: :shares
 
   validates :name, :email, presence: true
+
+  def initials
+
+    # current_user.name.split(" ")[0][0]  current_user.name.split(" ")[1][0]
+    # name.split(" ").map {|n| n[0]}
+  end
 end

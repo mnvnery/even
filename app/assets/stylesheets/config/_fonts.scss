@@ -18,20 +18,20 @@ $title-font: "SF Pro Display Medium", "sans-serif";
 
 @font-face {
    font-family: 'SF Pro Display Semibold';
-   src: url('/assets/SF-Pro-Display-Semibold.otf')
+   src: asset-url('SF-Pro-Display-Semibold.otf')
 }
 
 @font-face {
    font-family: 'SF Pro Display Regular';
-   src: url('/assets/SF-Pro-Display-Regular.otf')
+   src: asset-url('SF-Pro-Display-Regular.otf')
 }
 
 @font-face {
    font-family: 'SF Pro Display Medium';
-   src: url('/assets/SF-Pro-Display-Medium.otf')
+   src: asset-url('SF-Pro-Display-Medium.otf')
 }
 
 @font-face {
    font-family: 'SF Pro Display Light';
-   src: url('/assets/SF-Pro-Display-Light.otf')
+   src: asset-url('SF-Pro-Display-Light.otf')
 }

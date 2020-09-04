@@ -4,15 +4,18 @@
 <div class="card-container house-input">
   <div class="svg-house">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 16.6" style='margin-bottom: 3rem;'><title>green-houserectangle</title><rect x="8.3" y="-8.3" width="16.6" height="33.2" transform="translate(24.9 -8.3) rotate(90)" fill="#81b3a3"/></svg>
-    <div class="form-margins text-center">
-      <h5 class="question">Copy this link and send it to your roommates to add them to your house!</h5>
-      <p class="pb-5">http://localhost:3000/users/sign_up?house_id=<%= @house.id %></p>
-    </div>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 23.47" style='transform: rotate(180deg);'><title>triangle-sand</title><polyline points="0 23.48 23.48 0 46.95 23.48" fill="#559CAD"/></svg>
   </div>
+    <div class="form-margins">
+      <h5 class="question mt-3">Invite your housemates to join with this link.</h5>
+      <div class="link-area">
+        <input type="text" value="http://localhost:3000/users/sign_up?house_id=<%= @house.id %>" id="myInput">
+        <button id="copybtn">copy</button>
+      </div>
+    </div>
 </div>
-  <div class="align-button-right">
-    <%= link_to 'done', house_shares_path(@house), class: 'btn btn-primary btn-sm' %>
-  </div>
+<div class="align-button-right">
+  <%= link_to 'done', house_shares_path(@house), class: 'btn btn-primary btn-sm' %>
+</div>
 
 
