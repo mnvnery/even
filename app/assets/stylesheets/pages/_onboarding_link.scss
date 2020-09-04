@@ -1,0 +1,22 @@
+#myInput {
+  background: $smooth-green;
+  color: $light-sand;
+  border-radius:$border-radius;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  margin-right: 0.3rem;
+}
+
+#copybtn {
+  background: $smooth-blue;
+  color: $light-sand;
+  border-radius:$border-radius;
+  border: none;
+  padding: 0.375rem 0.75rem;
+}
+
+.link-area {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
