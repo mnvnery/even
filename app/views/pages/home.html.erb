@@ -1,16 +1,17 @@
 <main>
-<div id="shapes">
-<%= image_tag "yellow-circle.svg", alt: "circle", class: 'shape' %>
-<br>
-<%= image_tag "sand-triangle.svg", alt: "triangle", class: 'shape' %>
-<br>
-<%= image_tag "blue-square.svg", alt: "square", class: 'shape' %>
-</div>
-<h1>Even</h1>
+  <div id="shapes">
+    <%= image_tag "yellow-circle.svg", alt: "circle", class: 'shape' %>
+    <br>
+    <%= image_tag "sand-triangle.svg", alt: "triangle", class: 'shape' %>
+    <br>
+    <%= image_tag "blue-square.svg", alt: "square", class: 'shape' %>
+  </div>
 
-<div class="start-button-container">
-<%= link_to new_user_registration_path, class: 'btn btn-danger' do %>
-  <span>get started &nbsp;&nbsp;&nbsp;&nbsp; →</span>
-<% end %>
-</div>
+  <h1>Even</h1>
+
+  <div class="start-button-container">
+    <%= link_to new_user_registration_path, class: 'btn btn-danger' do %>
+      <span>get started &nbsp;&nbsp;&nbsp;&nbsp; →</span>
+    <% end %>
+  </div>
 </main>

@@ -1,34 +1,39 @@
-<div class="booking-container p-3 mx-auto mt-5">
+<h3 class="house-name">Edit Bill</h1>
 
-  <%= simple_form_for [@house, @bill] do |f| %>
-
-      <div class="">
-        <div >
-        <%= f.input :name %>
-        </div>
-        <div>
-        <%= f.input :due_date, html5:true %>
-        </div>
-        <div>
+<div class="bill-container">
+    <%= simple_form_for [@house, @bill] do |f| %>
         <%= f.input :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
+
+        <div class="d-flex">
+          <%= f.input :name %>
+          <%= f.input :due_date, html5:true %>
         </div>
-         <div>
-        <%= f.input :amount %>
+
+          <%= f.label :amount %>
+        <div class="d-flex">
+          <%= f.input_field :amount, class: "form-control" %>
+          <%= f.submit "Split Even", class: "split-even-btn" %>
         </div>
-        <div>
+
+        <div class="member-shares-container">
           <% @house.memberships.each do | membership | %>
-          <div class="d-flex"> <%= membership.user.name %> <input class="form-control numeric integer optional" type="number" name="share[<%=membership.user.id%>]" value="<%= @bill.get_share_amount_by_user(membership.user) %>"> </div>
+            <div class="member-share">
+              <p class="member-title"><%= membership.user.name.split(' ')[0] %></p>
+              <input class="form-control numeric integer optional member-value" type="number" name="share[<%=membership.user.id%>]" value="<%= @bill.get_share_amount_by_user(membership.user) %>">
+            </div>
           <% end %>
         </div>
 
-        <%= f.submit "Add", class: "btn btn-primary"%>
-      </div>
+
+        <div class="add-button-container">
+          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
+        </div>
 
     <% end%>
-</div>
 
+  </div>
 <div>
-  <%= link_to "🗑",
+  <%= link_to "Delete Bill",
   bill_path(@bill),
   method: :delete,
   data: { confirm: "Are you sure?" } %>
@@ -36,3 +41,4 @@
 
 <%= link_to "Back", house_path(@bill.house) %>
 
+<div class="mb-5 pb-5"></div>

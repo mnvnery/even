@@ -5,9 +5,13 @@ class Users::SessionsController < Devise::SessionsController
   layout "signup"
 
   # TO DO:
-  # def after_sign_in_path_for(resource)
-  #   blabla_path
-  # end
+  def after_sign_in_path_for(resource)
+    if @house
+      house_shares_path(@house)
+    else
+      onboarding_houses_path
+    end
+  end
 
 
   # GET /resource/sign_in
@@ -22,6 +26,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+    @house = nil
     if params[:user][:house_id]
       @house = House.find(params[:user][:house_id])
       params[:user].delete :house_id
@@ -29,7 +34,7 @@ class Users::SessionsController < Devise::SessionsController
 
       super
 
-      if !resource.new_record?
+      if !resource.new_record? && @house
         @membership = Membership.create({ user: resource, house: @house })
       end
   end

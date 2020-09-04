@@ -25,6 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    @house = nil
     if params[:user][:house_id]
       @house = House.find(params[:user][:house_id])
       params[:user].delete :house_id
@@ -32,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     super
 
-    if !resource.new_record?
+    if !resource.new_record? && @house #if the user was saved and you have a house id
       @membership = Membership.create({ user: resource, house: @house })
     end
 
@@ -77,7 +78,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    onboarding_houses_path
+    if @house
+      house_shares_path(@house)
+    else
+      onboarding_houses_path
+    end
   end
 
   # The path used after sign up for inactive accounts.

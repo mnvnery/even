@@ -1,39 +1,38 @@
- <div class="col-xs-12 col-sm-6">
-  <div class="text-center">
+<h3 class="house-name">Add a Bill</h1>
+
+  <div class="bill-container">
     <%= simple_form_for [@house, @bill] do |f| %>
-
-      <div class="">
-        <div >
-        <%= f.input :name %>
-        </div>
-
-        <div>
-        <%= f.input :due_date, html5:true %>
-        </div>
-
-        <div>
         <%= f.input :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
+
+        <div class="d-flex">
+          <%= f.input :name %>
+          <%= f.input :due_date, html5:true %>
         </div>
 
-        <div>
-        <%= f.input :amount %>
+          <%= f.label :amount %>
+        <div class="d-flex">
+          <%= f.input_field :amount, class: "form-control" %>
+          <span id="splitEvenButton" class="split-even-btn" data-memberships="<%= @house.memberships.count %>">
+            Split Even
+          </span>
         </div>
 
-        <div>
+        <div class="member-shares-container">
           <% @house.memberships.each do | membership | %>
-          <div class="d-flex"> <%= membership.user.name %> <input class="form-control numeric integer optional membership-bill-value" type="number" name="share[<%=membership.user.id%>]">
-          </div>
+            <div class="member-share">
+              <p class="member-title"><%= membership.user.name.split(' ')[0] %></p>
+              <input class="form-control numeric integer optional member-value membership-bill-value" type="number" name="share[<%=membership.user.id%>]">
+            </div>
           <% end %>
         </div>
 
-        <span id="splitEvenButton" class="btn btn-secondary" data-memberships="<%= @house.memberships.count %>">
-          Split Even
-        </span>
 
-        <%= f.submit "Save Bill", class: "btn btn-primary"%>
 
-      </div>
+        <div class="add-button-container">
+          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
+        </div>
     <% end%>
-
   </div>
-</div>
+
+
+<div class="mb-5 pb-5"></div>
