@@ -1,0 +1,52 @@
+.bill-container {
+  margin: 2.5rem;
+}
+
+.bill-container input {
+  background: $light-sand;
+}
+
+.bill-container input:focus {
+  background: $light-sand;
+}
+
+.bill-container select {
+  background: $light-sand;
+}
+
+.bill-container select:focus {
+  background: $light-sand;
+}
+
+.add-button-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.add-button-container .add-button {
+  background: $smooth-green !important;
+  border: none;
+  color: $light-sand;
+}
+
+.split-even-btn {
+  border-radius: $border-radius;
+  padding: 0.375rem 1.5rem;
+  border: none;
+  color: $medium-blue;
+  margin-left: 0.3rem;
+}
+.member-shares-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.member-title {
+  margin-bottom: 0.5rem;
+}
+
+.member-share {
+  margin: 0.3rem;
+}
