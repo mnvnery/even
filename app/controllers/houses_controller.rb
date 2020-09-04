@@ -44,11 +44,9 @@ class HousesController < ApplicationController
   end
 
   def onboarding
-    if current_user.houses.length > 0
-      redirect_to dashboard_path
-    else
+    # if current_user.houses.length > 0
+    #   redirect_to house_shares_path(params[:house_id])
       @house = House.new
-    end
   end
 
   def onboarding_link
