@@ -1,7 +1,12 @@
+.house-name {
+  margin-top: 3rem;
+  text-align: center;
+}
+
 .graph-container{
-  margin: 2rem;
+  margin: 3rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .graph-element {
@@ -26,3 +31,14 @@
   margin-left: 2rem;
   padding-left: 1rem;
 }
+.notification-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification-row h4 {
+  font-size: 20px;
+  width: 150px;
+}
+
+
