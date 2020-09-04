@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   }
 
   root to: 'pages#home'
-  get '/settings', to: 'pages#settings'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
 
     member do
       get :onboarding_link
+      get :settings
     end
 
     resources( :bills, {only: [:edit, :update, :new, :create]})

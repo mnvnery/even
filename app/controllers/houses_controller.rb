@@ -1,6 +1,7 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
   layout "signup", only: [:onboarding]
+  layout "navbar", only: [:settings]
 
   # /houses
   def index
@@ -52,6 +53,10 @@ class HousesController < ApplicationController
   end
 
   def onboarding_link
+    @house = House.find(params[:id])
+  end
+
+  def settings
     @house = House.find(params[:id])
   end
 
