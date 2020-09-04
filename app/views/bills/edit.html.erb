@@ -30,15 +30,14 @@
         </div>
 
     <% end%>
-
+      <div class="mt-3">
+        <%= link_to "Delete Bill",
+        bill_path(@bill),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block add-button" %>
+      </div>
   </div>
-<div>
-  <%= link_to "Delete Bill",
-  bill_path(@bill),
-  method: :delete,
-  data: { confirm: "Are you sure?" } %>
-</div>
 
-<%= link_to "Back", house_path(@bill.house) %>
+
 
 <div class="mb-5 pb-5"></div>
