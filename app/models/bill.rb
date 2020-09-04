@@ -11,4 +11,8 @@ class Bill < ApplicationRecord
     user_share = get_share_by_user(user)
     user_share ? user_share.amount : 0
   end
+
+  def formated_due_date
+    self.due_date.strftime("%-d %B") if self.due_date
+  end
 end

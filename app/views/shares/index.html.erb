@@ -35,9 +35,8 @@
 
 <% @shares.each do |share| %>
   <% if share.bill.house == @house %>
-    <% due_date = share.bill.due_date.strftime("%-d %B") %>
       <div class='notification-card'>
-        <p class="text-muted mb-0"> <%= due_date %></p>
+        <p class="text-muted mb-0"> <%= share.bill.formated_due_date %></p>
         <div class="notification-row">
             <h4><%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %></h4>
             <% if @icon_names.include?(share.bill.category)%>
