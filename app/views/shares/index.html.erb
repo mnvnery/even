@@ -22,8 +22,14 @@
   <% end %>
 </div>
 
-<%= link_to house_shares_path do %>
-  <div class="even-up-button">Even up &nbsp; →</div>
+<% if @shares.count > 0 %>
+  <%= link_to house_shares_path do %>
+    <div class="even-up-button">Even up &nbsp; →</div>
+  <% end %>
+<% elsif @shares.count == 0 %>
+    <div class='notification-card'>
+      <p class="mt-3 ml-2"> 😥 Your house has no bills yet. <br> Click on the plus button to start adding! 🎉</p>
+    </div>
 <% end %>
 
 
