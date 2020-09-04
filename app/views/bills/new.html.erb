@@ -21,40 +21,19 @@
 
         <div>
           <% @house.memberships.each do | membership | %>
-          <div class="d-flex"> <%= membership.user.name %> <input class="form-control numeric integer optional" type="number" name="share[<%=membership.user.id%>]">
+          <div class="d-flex"> <%= membership.user.name %> <input class="form-control numeric integer optional membership-bill-value" type="number" name="share[<%=membership.user.id%>]">
           </div>
           <% end %>
         </div>
-        <%= f.submit "Split Even", class: "btn btn-primary"%>
-        <%= f.submit "Add", class: "btn btn-primary"%>
+
+        <span id="splitEvenButton" class="btn btn-secondary" data-memberships="<%= @house.memberships.count %>">
+          Split Even
+        </span>
+
+        <%= f.submit "Save Bill", class: "btn btn-primary"%>
 
       </div>
     <% end%>
 
   </div>
 </div>
-
-<!-- <script>
-
-# do a button
-# select the input given in the f.input :amount
-# know the number of the members in that house
-# do the math
-# insert on the each input member
-
- <button onclick="myFunction()" type="button" class="btn btn-danger">split EVEN</button>
-
-function myFunction() {
-  var x = document.getElementById("myForm").elements.length;
-  document.getElementById("demo").innerHTML = "Found " + x + " elements in the form.";
-}
-
-function divide()
-{
-  number1 = document.getElementById("firstNumber").value;
-  number2 = document.getElementById("secondNumber").value;
-  document.getElementById("answer").innerHTML = number1 / number2;
-}
-
-</script> -->
-
