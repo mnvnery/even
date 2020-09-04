@@ -9,7 +9,7 @@
     <div class="form-margins">
       <h5 class="question mt-3">Invite your housemates to join with this link.</h5>
       <div class="link-area">
-        <input type="text" value="http://localhost:3000/users/sign_up?house_id=<%= @house.id %>" id="myInput">
+        <input type="text" value="<%= new_user_registration_url %>?house_id=<%= @house.id %>" id="myInput">
         <button id="copybtn">copy</button>
       </div>
     </div>
