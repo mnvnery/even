@@ -54,7 +54,7 @@ class BillsController < ApplicationController
   def destroy
     @bill = Bill.find(params[:id])
     @bill.destroy
-    redirect_to house_path(@bill.house)
+    redirect_to house_shares_path(@bill.house)
   end
 
 private
