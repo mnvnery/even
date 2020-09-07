@@ -1,14 +1,14 @@
 <div class="mx-5 mt-5">
   <button class="round-button-name">
   <h1>
-      <%= current_user.name.split(" ")[0][0] %><%= current_user.name.split(" ")[1][0] %>
+      <%= current_user.initials %>
   </h1>
   </button>
 </div>
 
 <div class="d-flex justify-content-center mt-3 mb-4">
   <div>
-    <h3 class="text-center">Hey, <%= current_user.name.split(" ")[0]%>
+    <h3 class="text-center"> Hey, <%= current_user.first_name %>
     </h3>
   </div>
   <div>
@@ -40,7 +40,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="23" height="23"><path fill="none" d="M0 0h24v24H0z"/><path d="M20 20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9zM7.5 13a4.5 4.5 0 1 0 9 0h-2a2.5 2.5 0 1 1-5 0h-2z"/></svg>
   </div>
   <div>
-     <%= link_to "House Details", houses_path %>
+     <%= link_to "House Details", edit_house_path(@house) %>
   </div>
 
   <p>></p>
@@ -50,7 +50,7 @@
   <div class="round-small-member">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="23" height="23"><path fill="none" d="M0 0h24v24H0z"/><path d="M14 14.252V22H4a8 8 0 0 1 10-7.748zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm6 4v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z"/></svg>
    </div>
-   <%= link_to "Invite New Members", root_path %>
+   <%= link_to "Invite New Members", onboarding_link_house_path(@house) %>
   <p>></p>
 </div>
 
@@ -58,7 +58,7 @@
   <div class="round-small-member">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="23" height="23"><path fill="none" d="M0 0h24v24H0z"/><path d="M10.313 11.566l7.94-7.94 2.121 2.121-1.414 1.414 2.121 2.121-3.535 3.536-2.121-2.121-2.99 2.99a5.002 5.002 0 0 1-7.97 5.849 5 5 0 0 1 5.848-7.97zm-.899 5.848a2 2 0 1 0-2.828-2.828 2 2 0 0 0 2.828 2.828z"/></svg>
   </div>
-  <%= link_to "Set up New House", new_house_path %>
+  <%= link_to "Set up New House", onboarding_houses_path %>
   <p>></p>
 </div>
 

@@ -11,7 +11,7 @@ main {
 
 .button {
   border-radius: 50px;
-  background: $medium-blue;
+  background: $light-sand;
   z-index: 1;
   position: relative;
   height: 60px;
@@ -20,6 +20,11 @@ main {
   vertical-align: middle;
   box-shadow: 0 0 10px 0 rgba(35, 45, 59, 0.4);
 }
+
+.button p {
+  color: $medium-blue;
+}
+
 .button a {
   font-size: 30px;
   font-weight: bolder;
@@ -62,6 +67,7 @@ header {
     transparent 39px,
     $medium-blue 40px
   );
+  box-shadow: 0 0 10px 0 rgba(35, 45, 59, 0.4);
 }
 
 svg {
