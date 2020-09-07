@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"></div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+
+<% @shares.each do |share| %>
+  <% if share.bill.house == @house %>
+      <div class='notification-card'>
+        <p class="text-muted mb-0"> <%= share.bill.formated_due_date %></p>
+        <div class="notification-row">
+            <h4><%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %></h4>
+            <% if @icon_names.include?(share.bill.category)%>
+              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
+            <% end %>
+          <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
+        </div>
+      </div>
+  <% end %>
+<% end %>
+
+
+      <h3> <%= humanized_money_with_symbol(@payment.even_amount/100)  %> </h3>
+
+
+      <button id="pay" class="btn btn-primary">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @payment.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>

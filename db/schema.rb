@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_092428) do
+ActiveRecord::Schema.define(version: 2020_09_07_134009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 2020_09_07_092428) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.string "state"
+    t.integer "even_amount_cents", default: 0, null: false
+    t.string "even_amount_currency", default: "EUR", null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "shares", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "bill_id", null: false
@@ -60,7 +71,9 @@ ActiveRecord::Schema.define(version: 2020_09_07_092428) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "amount_cents", default: 0, null: false
+    t.bigint "payment_id"
     t.index ["bill_id"], name: "index_shares_on_bill_id"
+    t.index ["payment_id"], name: "index_shares_on_payment_id"
     t.index ["user_id"], name: "index_shares_on_user_id"
   end
 
@@ -81,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_09_07_092428) do
   add_foreign_key "invitations", "houses"
   add_foreign_key "memberships", "houses"
   add_foreign_key "memberships", "users"
+  add_foreign_key "payments", "users"
   add_foreign_key "shares", "bills"
+  add_foreign_key "shares", "payments"
   add_foreign_key "shares", "users"
 end

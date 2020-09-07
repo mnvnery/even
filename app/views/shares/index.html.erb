@@ -22,9 +22,10 @@
   <% end %>
 </div>
 
+<!-- Button to payments or display of no shares -->
 <% if @shares.count > 0 %>
-  <%= link_to house_shares_path do %>
-    <div class="even-up-button">Even up &nbsp; →</div>
+  <%= form_tag house_payments_path(@house) do %>
+    <%= submit_tag 'Even up →', class: 'even-up-button' %>
   <% end %>
 <% elsif @shares.count == 0 %>
     <div class='notification-card'>
@@ -33,6 +34,7 @@
 <% end %>
 
 
+<!-- List of all Shares of the current user -->
 <% @shares.each do |share| %>
   <% if share.bill.house == @house %>
       <div class='notification-card'>
