@@ -3,6 +3,8 @@ class Bill < ApplicationRecord
   has_many :shares, dependent: :destroy
   has_many :users, through: :shares
 
+  monetize :amount_cents
+
   def get_share_by_user(user)
     self.shares.where(user: user).first
   end

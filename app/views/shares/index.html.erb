@@ -42,7 +42,7 @@
             <% if @icon_names.include?(share.bill.category)%>
               <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
             <% end %>
-          <p class="share-amount"><%= share.amount %>€</p>
+          <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
         </div>
       </div>
   <% end %>
