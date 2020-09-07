@@ -1,12 +1,20 @@
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
 
 <h1>Edit House page</h1>
-
 <%= simple_form_for(@house) do |f| %>
   <%= f.input :name %>
   <%= f.input :email %>
-  <%= f.input :house_balance %>
-  <%= f.submit "Edit", class: "btn btn-primary" %>
+
+  <h6>House Members</h6>
+  <ul>
+    <% @house.users.each do |user| %>
+    <li><%= user.name %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Go back", settings_house_path(@house), class: "btn btn-info btn-sm"  %>
+  <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+
 <% end %>
 
-<%= link_to "Go back", house_path(@house) %>
+
+
