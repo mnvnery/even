@@ -23,9 +23,16 @@ Rails.application.routes.draw do
     resources( :bills, {only: [:edit, :update, :new, :create]})
     # Method (symbol, hash { key/symbol value/array})
     resources :shares, only: [:index]
+
+    resources :payments, only: [:show, :create]
+
+    get 'pre_payment/:id', to: 'payments#pre_payment', as: 'pre_payment'
   end
 
   resources( :bills, {only: [:destroy]})
 
   resources :shares, only: [:edit, :update]
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 end
