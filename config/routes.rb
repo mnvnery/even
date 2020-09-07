@@ -33,4 +33,6 @@ Rails.application.routes.draw do
 
   resources :shares, only: [:edit, :update]
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 end

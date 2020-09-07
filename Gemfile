@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Money Payment Gems
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'
 # --------
 
 gem 'devise'

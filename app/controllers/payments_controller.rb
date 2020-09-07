@@ -1,8 +1,14 @@
 class PaymentsController < ApplicationController
 
+  def show
+    @payment = current_user.payments.find(params[:id])
+    @house = House.find(params[:house_id])
+  end
+
   def pre_payment
     @payment = Payment.find(params[:id])
-    @shares = Share.where(user: current_user)
+    # @shares = Share.where(user: current_user)
+    @shares = @payment.shares
     @house = House.find(params[:house_id])
   end
 
@@ -17,7 +23,7 @@ class PaymentsController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: 'EVEN UP',
-        amount: payment.even_amount_cents,
+        amount: (payment.even_amount_cents/100),
         currency: 'eur',
         quantity: 1
       }],
@@ -26,6 +32,6 @@ class PaymentsController < ApplicationController
     )
 
     payment.update(checkout_session_id: session.id)
-    redirect_to  house_pre_payment_path(payment)
+    redirect_to  house_pre_payment_path(house, payment)
   end
 end

@@ -1,0 +1,16 @@
+<!-- app/views/orders/show.html.erb -->
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"></div>
+    <div class="col">
+      <h1>Payment #<%= @payment.id %> <small><span class="badge badge-primary"></span></small></h1>
+      <ul class="list-unstyled">
+        <li><strong>PAYED ON</strong> <%= @payment.created_at.to_date %></li>
+        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol(@payment.even_amount/100) %></li>
+        </li>
+      </ul>
+      <% back = 'back to ' + @house.name.to_s  %>
+      <button type="button" class="btn btn-link btn-outline-dark"><%= link_to back, house_shares_path(@house) %></button>
+    </div>
+  </div>
+</div>
