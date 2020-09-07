@@ -23,6 +23,9 @@
 }
 
 .title-arrow {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   margin-left: 1rem;
 }
+
+
