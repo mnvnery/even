@@ -11,12 +11,18 @@
     margin-left: 10px;
 }
 
+.round-small-text {
+    float: right;
+    width: 200px;
+    margin-top: 7px;
+}
+
 .round-small-you svg {
   fill: $medium-blue;
   margin-top: 3px;
 }
 
-.round-small-member {
+.round-small-house {
     display:block;
     width:35px;
     height:35px;
@@ -29,7 +35,7 @@
     margin-left: 10px;
 }
 
-.round-small-member svg {
+.round-small-house svg {
   fill: $medium-blue;
   margin-top: 3px;
 }
