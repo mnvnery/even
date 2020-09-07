@@ -12,8 +12,19 @@ class User < ApplicationRecord
   validates :name, :email, presence: true
 
   def initials
-
-    # current_user.name.split(" ")[0][0]  current_user.name.split(" ")[1][0]
-    # name.split(" ").map {|n| n[0]}
+    names = name.split(" ")
+    if names.count > 1
+      initials = names.first.first + names.last.first
+    else
+      initials = names.first.first
+    end
+    initials.upcase
   end
+
+  def first_name
+    names = name.split(" ")
+    initials = names.first
+    initials.capitalize
+  end
+
 end
