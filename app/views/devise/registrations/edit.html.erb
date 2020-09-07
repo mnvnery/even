@@ -1,12 +1,16 @@
 <%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
 
-<div class="ml-3">
-  <%= link_to "<---- Back ", :back %>
-</div>
+
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <div class="card-container">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.48 22.74"><title>half-circle-red</title><path d="M45.48,0A22.74,22.74,0,0,1,0,0" fill='#F8CF61'/></svg>
+    <div class="title-arrow">
+      <%= link_to "<", :back %>
+      <h5>Update Account</h5>
+    </div>
+
+
+
       <%= f.error_notification %>
 
     <div class="form-margins">
@@ -38,8 +42,7 @@
 <% end %>
 
 <div class="card-bottom">
-  <h6>Cancel my account</h6>
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %>
 </div>
 
 
