@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_181508) do
+ActiveRecord::Schema.define(version: 2020_09_07_092428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
     t.bigint "house_id", null: false
-    t.integer "amount"
     t.date "due_date"
     t.string "name"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount_cents", default: 0, null: false
     t.index ["house_id"], name: "index_bills_on_house_id"
   end
 
@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2020_09_01_181508) do
   create_table "shares", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "bill_id", null: false
-    t.integer "amount"
     t.boolean "paid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount_cents", default: 0, null: false
     t.index ["bill_id"], name: "index_shares_on_bill_id"
     t.index ["user_id"], name: "index_shares_on_user_id"
   end
