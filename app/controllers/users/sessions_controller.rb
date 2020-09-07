@@ -8,12 +8,13 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     if @house
       house_shares_path(@house)
-    elsif resource.houses.last
-      house_shares_path(resource.houses.last)
+    elsif resource.houses.count > 1
+      houses_path
+    elsif resource.houses.count == 1
+      house_shares_path(resource.houses.first)
     else
       onboarding_houses_path
     end
-
   end
 
 

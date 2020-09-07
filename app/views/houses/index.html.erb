@@ -1,11 +1,12 @@
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
+<h1>Choose your house:</h1>
 
-<h1>Houses</h1>
-
-<ul>
-<% @houses.each do |house| %>
-  <li> <%= link_to house.name, house_path(house) %> </li>
+<% if @houses = current_user.houses  %>
+  <ul>
+    <% @houses.each do |house| %>
+      <li> <%= link_to house.name, house_shares_path(house) %> </li>
+    <% end %>
+  </ul>
 <% end %>
-</ul>
 
-<%= link_to "Create a new House", new_house_path%>
+
