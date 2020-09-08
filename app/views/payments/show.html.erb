@@ -1,7 +1,30 @@
 <!-- app/views/orders/show.html.erb -->
 
+<h3 class="house-name mb-5"> Payment #<%= @payment.id %> <small><span class="badge badge-primary"></span></small></h3>
 
+<ul class="list-unstyled">
+  <% if @payment.state == 'paid' %>
+    <li></strong> <%= @payment.created_at.to_date %></li>
+    <li><strong>TOTAL</strong> <%= humanized_money_with_symbol(@payment.even_amount/100) %></li>
+  <% end %>
+  <div class="py-3">
+    <li><% if @payment.state == 'paid' %></li>
+      <div class="text-success"> <%= @payment.state.to_s.upcase  %> </div>
+      <% else%>
+      <div class="text-danger"> Payment Was Not Completed. Please Complete Your Payment. </div>
+      <% end  %>
+  </div>
+  </li>
+</ul>
 
+<div class="card-bottom">
+  <div class="form-actions next-button-container">
+   <% back = 'back to ' + @house.name %>
+    <button type="button" class="btn btn-link btn-outline-dark"><%= link_to back, house_shares_path(@house) %></button>
+  </div>
+</div>
+
+<!--
 <div class="container">
   <div class="row py-4">
     <div class="col-md-3"></div>
@@ -26,5 +49,4 @@
       <button type="button" class="btn btn-link btn-outline-dark"><%= link_to back, house_shares_path(@house) %></button>
     </div>
   </div>
-</div>
-
+</div> -->

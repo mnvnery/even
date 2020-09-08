@@ -27,10 +27,17 @@
 }
 
 .even-up-button {
-  margin-bottom: -0.5rem;
-  margin-left: 2rem;
-  padding-left: 1rem;
+  background: none;
+  color: $light-sand;
+  border-radius: $border-radius;
+  border: none;
+  border: 1px solid $light-sand;
+  padding: 0.375rem 0.75rem;
+  // margin-left: 2rem;
+  // margin-bottom: -0.5rem;
+  // padding-left: 1rem;
 }
+
 .notification-row {
   display: flex;
   justify-content: space-between;
