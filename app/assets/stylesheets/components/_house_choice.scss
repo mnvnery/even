@@ -1,7 +1,6 @@
 .house_choice  {
   fill: $medium-blue;
   display: grid;
-
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 10px;
   // display: flex;
@@ -19,6 +18,5 @@
 
 .house_choice p {
   font-family: 'SF Pro Display Light';
-
 }
 

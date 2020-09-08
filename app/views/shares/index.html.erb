@@ -33,20 +33,21 @@
     </div>
 <% end %>
 
-
 <!-- List of all Shares of the current user -->
 <% @shares.each do |share| %>
   <% if share.bill.house == @house %>
-      <div class='notification-card'>
-        <p class="text-muted mb-0"> <%= share.bill.formated_due_date %></p>
-        <div class="notification-row">
-            <h4><%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %></h4>
-            <% if @icon_names.include?(share.bill.category)%>
-              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
-            <% end %>
-          <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
+    <% if share.paid != true %>
+        <div class='notification-card'>
+          <p class="text-muted mb-0"> <%= share.bill.formated_due_date %></p>
+          <div class="notification-row">
+              <h4><%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %></h4>
+              <% if @icon_names.include?(share.bill.category)%>
+                <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
+              <% end %>
+            <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
+          </div>
         </div>
-      </div>
+    <% end %>
   <% end %>
 <% end %>
 
