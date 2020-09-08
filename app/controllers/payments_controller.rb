@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
   def show
     @payment = current_user.payments.find(params[:id])
     @house = House.find(params[:house_id])
+    mark_shares_paid(@payment)
   end
 
   def pre_payment
@@ -34,4 +35,15 @@ class PaymentsController < ApplicationController
     payment.update(checkout_session_id: session.id)
     redirect_to  house_pre_payment_path(house, payment)
   end
+
+private
+
+  def mark_shares_paid(payment)
+    if payment.state == 'paid'
+      payment.shares.each do |share|
+        share.update(paid: true)
+      end
+    end
+  end
+
 end
