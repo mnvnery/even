@@ -1,6 +1,7 @@
 class MembershipsController < ApplicationController
 
-def destroy
-end
+  def destroy
+
+  end
 
 end
