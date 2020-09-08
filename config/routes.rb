@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
     resources( :bills, {only: [:edit, :update, :new, :create]})
     # Method (symbol, hash { key/symbol value/array})
+    resources :memberships, only: [:index, :destroy]
     resources :shares, only: [:index] do
       collection do
         get :history

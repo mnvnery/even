@@ -27,5 +27,4 @@ class User < ApplicationRecord
     initials = names.first
     initials.capitalize
   end
-
 end

@@ -1,0 +1,27 @@
+<%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
+
+
+<div class="card-container house-input">
+  <div class="svg-house">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 16.6" style='margin-bottom: 3rem;'><title>green-houserectangle</title><rect x="8.3" y="-8.3" width="16.6" height="33.2" transform="translate(24.9 -8.3) rotate(90)" fill="#81b3a3"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 23.47" style='transform: rotate(180deg);'><title>triangle-sand</title><polyline points="0 23.48 23.48 0 46.95 23.48" fill="#559CAD"/></svg>
+  </div>
+  <div class="form-margins">
+      <h4>Leave a house:</h4>
+    <div class="house_choice">
+      <% if @houses = current_user.houses  %>
+        <% @houses.each do |house| %>
+          <div class="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="55" height="55">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M21 20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.49a1 1 0 0 1 .386-.79l8-6.222a1 1 0 0 1 1.228 0l8 6.222a1 1 0 0 1 .386.79V20z" fill="$light-sand"/>
+              </svg>
+              <p>Leave</p>
+              <%= link_to house.name, house_membership_path(house, Membership.where(user: current_user, house: house).first), method: :delete, data: { confirm: "Are you sure you want to leave #{house.name} house?"}  %>
+              <%= link_to 'Back', settings_house_path(@house) %>
+          </div>
+            <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
