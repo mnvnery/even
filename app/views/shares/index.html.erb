@@ -25,9 +25,12 @@
 </div>
 
 <!-- Button to payments or display of no shares -->
+
 <% if @shares.count > 0 %>
   <%= form_tag house_payments_path(@house) do %>
-    <%= submit_tag 'Even up →', class: 'even-up-button' %>
+  <div class="card-even d-flex justify-content-end">
+    <%= submit_tag 'Get Even', class: 'even-up-button' %>
+  </div>
   <% end %>
 <% elsif @shares.count == 0 %>
     <div class='notification-card'>
