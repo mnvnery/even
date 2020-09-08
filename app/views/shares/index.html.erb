@@ -12,10 +12,10 @@
   <% @house.memberships.each do |membership| %>              <!-- Create Symbols -->
     <div class="graph-element">
         <% @shares_all.each do |share| %>
-          <% if %>
-            <% share.bill.house == @house %>
-            <% if membership.user == share.user %>
-                <% if share.paid != true %>
+          <% if share.paid != true %>
+            <% if share.bill.house == @house %>
+              <% share.bill.house == @house %>
+              <% if membership.user == share.user %>
                   <% if @icon_names.include?(share.bill.category)%>
                     <div> <%= image_tag @symbols_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 35px"%></div>
                 <% end %>
@@ -57,7 +57,6 @@
     <% end %>
   <% end %>
 <% end %>
-
 
 <div class="my-5 py-5"></div>
 

@@ -16,4 +16,5 @@ class Share < ApplicationRecord
   def formated_paid_date
     self.paid_date.strftime("%-d %B") if self.paid_date
   end
+
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   root to: 'pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -37,6 +39,6 @@ Rails.application.routes.draw do
 
   resources :shares, only: [:edit, :update]
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 
 end
