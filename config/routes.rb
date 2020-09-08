@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   root to: 'pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -22,8 +24,12 @@ Rails.application.routes.draw do
 
     resources( :bills, {only: [:edit, :update, :new, :create]})
     # Method (symbol, hash { key/symbol value/array})
-    resources :shares, only: [:index]
     resources :memberships, only: [:index, :destroy]
+    resources :shares, only: [:index] do
+      collection do
+        get :history
+      end
+    end
 
     resources :payments, only: [:show, :create]
 
@@ -34,6 +40,6 @@ Rails.application.routes.draw do
 
   resources :shares, only: [:edit, :update]
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 
 end

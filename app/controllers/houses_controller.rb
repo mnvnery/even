@@ -33,7 +33,7 @@ class HousesController < ApplicationController
 
   def update
     if @house.update(house_params)
-      redirect_to house_path(@house)
+      redirect_to house_shares_path(@house)
     else
       render :new
     end
