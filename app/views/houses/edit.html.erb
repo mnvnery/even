@@ -1,9 +1,9 @@
 <%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
 
-
+<%= simple_form_for(@house) do |f| %>
 <div class="card-container house-input">
   <h6>Edit House:</h6>
-  <%= simple_form_for(@house) do |f| %>
+
     <%= f.input :name %>
     <%= f.input :email %>
     <h6>House Members:</h6>
@@ -14,12 +14,12 @@
         </div>
       <% end %>
     </div>
+
 </div>
   <div class="card-bottom">
     <%= link_to "Go back", settings_house_path(@house), class: "btn btn-info btn-sm"  %>
     <div class="form-actions next-button-container">
-      <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+    <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
     </div>
   </div>
-  <% end %>
-
+<% end %>
