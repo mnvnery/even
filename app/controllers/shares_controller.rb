@@ -9,6 +9,11 @@ class SharesController < ApplicationController
     @house = House.find(params[:house_id])
   end
 
+  def history
+    @shares_all = Share.all
+    @house = House.find(params[:house_id])
+  end
+
   def edit
     @share = Share.find(params[:id])
   end

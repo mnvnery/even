@@ -1,0 +1,18 @@
+<h3 class="house-name">Past Payments</h3>
+
+<% @shares_all.each do |share| %>
+  <% if share.bill.house == @house %>
+    <% if share.paid %>
+      <div class='notification-card'>
+        <p class="text-muted mb-0"> <%= share.formated_paid_date %></p>
+        <div class="notification-row">
+            <h6>  <%= share.user.first_name %> has paid <br> <%= share.bill.name  %> </h6>
+            <% if @icon_names.include?(share.bill.category)%>
+              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
+            <% end %>
+          <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
