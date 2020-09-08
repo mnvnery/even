@@ -56,6 +56,7 @@ class HousesController < ApplicationController
 
   def settings
     @house = House.find(params[:id])
+    @membership = Membership.where(user: current_user, house: @house).first
   end
 
   private

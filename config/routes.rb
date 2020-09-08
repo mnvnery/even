@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources( :bills, {only: [:edit, :update, :new, :create]})
     # Method (symbol, hash { key/symbol value/array})
     resources :shares, only: [:index]
+    resources :memberships, only: [:index, :destroy]
 
     resources :payments, only: [:show, :create]
 
