@@ -1,5 +1,4 @@
 // 2 make another function "updateForm"
-
 function updateForm() {
 
   const splitbutton = document.getElementById("splitEvenButton");
@@ -19,18 +18,15 @@ function updateForm() {
     // 2.5.  for each inputs -> insert the values
     inputs.forEach( input => {
       input.value = math;
-
         });
-
  }
 
 
 function addEventSplitButton() {
-
-//1.1 find button splitEvenButton
+  //1.1 find button splitEvenButton
   const splitbutton = document.getElementById("splitEvenButton");
 
-//1.2 do a addeventlistener click
+  //1.2 do a addeventlistener click
   if  (splitbutton) {
     splitbutton.addEventListener('click', () => updateForm() );
   }

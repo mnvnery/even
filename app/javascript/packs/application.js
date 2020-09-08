@@ -28,9 +28,11 @@ import "bootstrap";
 // Internal imports, e.g:
 import { addEventSplitButton } from '../components/split_even';
 import { copyLink } from '../components/copylink';
+import { setTimer } from '../components/reload_page';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   addEventSplitButton();
   copyLink();
+  setTimer();
 });
