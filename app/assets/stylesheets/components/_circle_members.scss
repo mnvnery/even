@@ -1,0 +1,16 @@
+.round-members {
+    display: flex;
+    width:55px;
+    height:55px;
+    border-radius: 50%;
+    text-align: center;
+    background: $smooth-yellow;
+    margin-left: 10px;
+    line-height: 52px;
+}
+
+.round-members p {
+  width: 55px;
+  font-size: 13px;
+
+}
