@@ -1,8 +1,11 @@
 .house_choice  {
   fill: $medium-blue;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  // display: flex;
+  // flex-wrap: wrap-reverse;
+  // justify-content: space-evenly;
   margin-top: 10px;
 }
 

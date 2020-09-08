@@ -1,20 +1,25 @@
-
-<h1>Edit House page</h1>
-<%= simple_form_for(@house) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :email %>
-
-  <h6>House Members</h6>
-  <ul>
-    <% @house.users.each do |user| %>
-    <li><%= user.name %></li>
-    <% end %>
-  </ul>
-
-  <%= link_to "Go back", settings_house_path(@house), class: "btn btn-info btn-sm"  %>
-  <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
-
-<% end %>
+<%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
 
 
+<div class="card-container house-input">
+  <h6>Edit House:</h6>
+  <%= simple_form_for(@house) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <h6>House Members:</h6>
+    <div class="d-flex justify-content-between">
+      <% @house.users.each do |user| %>
+        <div class="round-members">
+          <p><%= user.first_name%></p>
+        </div>
+      <% end %>
+    </div>
+</div>
+  <div class="card-bottom">
+    <%= link_to "Go back", settings_house_path(@house), class: "btn btn-info btn-sm"  %>
+    <div class="form-actions next-button-container">
+      <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+  <% end %>
 

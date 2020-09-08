@@ -4,46 +4,36 @@
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <div class="card-container">
-    <div class="title-arrow">
-      <%= link_to "<", :back %>
-      <h5>Update Account</h5>
-    </div>
-
-
-
+      <h5 class="ml-3">Update Account</h5>
       <%= f.error_notification %>
 
-    <div class="form-margins">
+    <div class="form-margins form-inputs">
+      <%= f.input :name,
+                      required: true,
+                      autofocus: true %>
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-      <div class="form-inputs">
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
-         </div>
     </div>
   </div>
   <div class="card-bottom">
+    <%= link_to "Go back", :back, class: 'btn btn-info btn-sm' %>
+
     <div class="form-actions next-button-container">
       <%= f.button :submit, "Update", class: 'btn btn-primary btn-sm'  %>
     </div>
   </div>
 <% end %>
-
-<div class="card-bottom">
-  <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %>
-</div>
 
 
 
