@@ -11,7 +11,7 @@
 
           <%= f.label :amount %>
         <div class="d-flex">
-          <%= f.input_field :amount, class: "form-control" %>
+          <%= f.input_field :amount, class: "form-control", value: "" %>
           <span id="splitEvenButton" class="split-even-btn" data-memberships="<%= @house.memberships.count %>">
             Evenly
           </span>

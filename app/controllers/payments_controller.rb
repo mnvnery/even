@@ -8,13 +8,13 @@ class PaymentsController < ApplicationController
   def pre_payment
     @payment = Payment.find(params[:id])
     # @shares = Share.where(user: current_user)
-    @shares = @payment.shares
+    @shares = @payment.shares.where(paid: [false, nil])
     @house = House.find(params[:house_id])
   end
 
   def create
     house = House.find(params[:house_id])
-    shares = Share.joins(:bill).where(user: current_user, bills: {house: house})
+    shares = Share.joins(:bill).where(user: current_user, paid: [false, nil], bills: {house: house})
     payment  = Payment.create!(even_amount: shares.sum('shares.amount_cents'), state: 'pending', user: current_user)
 
     shares.update_all(payment_id: payment.id)
