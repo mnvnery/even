@@ -5,6 +5,7 @@
       <h1>Checkout summary</h1>
         <% @shares.each do |share| %>
           <% if share.bill.house == @house %>
+            <% if share.paid != true %>
               <div class='notification-card'>
                 <p class="text-muted mb-0"> <%= share.bill.formated_due_date %></p>
                 <div class="notification-row">
@@ -15,6 +16,7 @@
                   <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
                 </div>
               </div>
+            <% end %>
           <% end %>
         <% end %>
 
