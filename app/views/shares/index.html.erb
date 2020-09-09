@@ -32,7 +32,6 @@
 
 
   <!-- Button to payments or display of no shares -->
-<!-- mudar no codigo para dizer que o shares é desta casa -->
 
  <% if current_user.shares.where(bill: @house.bills) == [] %>
     <h6 class="notifications-title ml-5">Notifications</h6>
@@ -48,7 +47,6 @@
       <% end  %>
     </div>
     <% end %>
-
   <% end %>
 
   <!-- List of all Shares of the current user -->

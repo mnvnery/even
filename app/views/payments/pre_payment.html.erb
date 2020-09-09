@@ -1,4 +1,5 @@
 <h3 class="house-name mb-5"> Checkout summary</h3>
+
 <% @shares.each do |share| %>
   <% if share.bill.house == @house %>
     <% if share.paid != true %>
