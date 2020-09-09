@@ -2,7 +2,16 @@
 
   <div class="bill-container">
     <%= simple_form_for [@house, @bill] do |f| %>
-        <%= f.input :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
+        <%= f.label :category %>
+        <div class="category-icons">
+          <span id='rent'><%= image_tag('rent.svg') %></span>
+          <span id="gas"><%= image_tag('gas.svg') %></span>
+          <span id="electricity"><%= image_tag('electricity.svg') %></span>
+          <span id="internet"><%= image_tag('internet.svg') %></span>
+          <span id="water"><%= image_tag('water.svg') %></span>
+        </div>
+
+        <%= f.hidden_field :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
 
         <div class="d-flex">
           <%= f.input :name, input_html: { maxlength: 15 } %>
