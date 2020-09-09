@@ -32,7 +32,10 @@
             </div>
           <% end %>
         </div>
-  
+        <div class="add-button-container">
+          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
+        </div>
+<% end %>
   <div class="mt-3">
     <%= link_to "Delete Bill",
     bill_path(@bill),

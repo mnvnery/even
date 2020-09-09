@@ -6,18 +6,17 @@
   <style>
   .rails-default-error-page {
     background-color: #232D3B;
-    color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    overflow: hidden;
   }
 
   .rails-default-error-page h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #FFF3EC;
-    line-height: 1.5em;
+    line-height: 1.8rem;
   }
-
   .shapes {
     display: flex;
     flex-direction: column;
@@ -26,7 +25,13 @@
 
   .shapes svg {
     width: 40%;
-    margin: 10px auto;
+    margin: 15px auto;
+  }
+
+  .card {
+    padding: 2rem 1rem;
+    border-radius: 45px;
+    margin: 0.8rem 1.5rem;
   }
   </style>
 </head>
@@ -34,12 +39,14 @@
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="shapes">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 33.2"><title>yellow-circle</title><rect width="33.2" height="33.2" rx="16.6" transform="translate(16.6 -6.88) rotate(45)" fill="#f9d062"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 23.47"><title>triangle-sand</title><polyline points="0 23.48 23.48 0 46.95 23.48" fill="#faeae1"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 46.95"><title>blue-square</title><rect x="6.88" y="6.88" width="33.2" height="33.2" transform="translate(23.47 -9.72) rotate(45)" fill="#559cad"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 33.2"><title>yellow-circle</title><rect width="33.2" height="33.2" rx="16.6" transform="translate(16.6 -6.88) rotate(45)" fill="#faeae1"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 46.95"><title>blue-square</title><rect x="6.88" y="6.88" width="33.2" height="33.2" transform="translate(23.47 -9.72) rotate(45)" fill="#f9d062"/></svg>
+    <div class="card">
+      <h1>Damn <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="margin: 0; width: 24px"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2c5.523 0 10 4.477 10 10a9.958 9.958 0 0 1-1.065 4.496 1.977 1.977 0 0 0-.398-.775l-.123-.135L19 14.172l-1.414 1.414-.117.127a2 2 0 0 0 1.679 3.282A9.974 9.974 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2zm0 13c-1.38 0-2.63.56-3.534 1.463l-.166.174.945.86C10.035 17.182 10.982 17 12 17c.905 0 1.754.144 2.486.396l.269.1.945-.86A4.987 4.987 0 0 0 12 15zm-3.5-5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="#559cad"/></svg>, <br> a missing page! <br><br> No need to panic, <br> just move along.</h1>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 23.47"><title>triangle-sand</title><polyline points="0 23.48 23.48 0 46.95 23.48" fill="#ed6a5b"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 33.2"><title>yellow-circle</title><rect width="33.2" height="33.2" rx="16.6" transform="translate(16.6 -6.88) rotate(45)" fill="#559cad"/></svg>
   </div>
-  <div class="m-3">
-    <h1>Oh no! This page doesn't seem to exist</h1>
-  </div>
+
 </body>
 </html>
