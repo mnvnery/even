@@ -29,7 +29,6 @@ import Swup from 'swup';
 // Internal imports, e.g:
 import { addEventSplitButton } from '../components/split_even';
 import { copyLink } from '../components/copylink';
-import { setTimer } from '../components/reload_page';
 import { categorySelect } from '../components/category_selection';
 // import { hideReveal } from '../components/dashboard_overview';
 
@@ -37,7 +36,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   addEventSplitButton();
   copyLink();
-  // setTimer();
   categorySelect();
   // hideReveal();
   const swup = new Swup();
