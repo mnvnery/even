@@ -3,19 +3,27 @@
 }
 
 .bill-container input {
-  background: $light-sand;
+  background: $medium-blue;
+  color: $light-sand;
+  border: none;
 }
 
 .bill-container input:focus {
-  background: $light-sand;
+  background: $medium-blue;
+  color: $light-sand;
+  border: none;
 }
 
 .bill-container select {
-  background: $light-sand;
+  background: $medium-blue;
+  color: $light-sand;
+  border: none;
 }
 
 .bill-container select:focus {
-  background: $light-sand;
+  background: $medium-blue;
+  color: $light-sand;
+  border: none;
 }
 
 .add-button-container {
@@ -32,10 +40,10 @@
 }
 
 .split-even-btn {
-  background: $smooth-green !important;
+
   border-radius: $border-radius;
   padding: 0.375rem 1.5rem;
-  border: none;
+  border: solid 1px $smooth-green;
   color: $light-sand;
   margin-left: 0.3rem;
 }
