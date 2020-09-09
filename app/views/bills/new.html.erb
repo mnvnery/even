@@ -1,38 +1,9 @@
 <h3 class="house-name">Add a Bill</h3>
-
   <div class="bill-container">
-    <%= simple_form_for [@house, @bill] do |f| %>
-        <%= f.input :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
-
-        <div class="d-flex">
-          <%= f.input :name %>
-          <%= f.input :due_date, html5:true %>
-        </div>
-
-          <%= f.label :amount %>
-        <div class="d-flex">
-          <%= f.input_field :amount, class: "form-control", value: "" %>
-          <span id="splitEvenButton" class="split-even-btn" data-memberships="<%= @house.memberships.count %>">
-            Evenly
-          </span>
-        </div>
-
-        <div class="member-shares-container">
-          <% @house.memberships.each do | membership | %>
-            <div class="member-share">
-              <p class="member-title"><%= membership.user.name.split(' ')[0] %></p>
-              <input class="form-control numeric integer optional member-value membership-bill-value" type="number" name="share[<%=membership.user.id%>]">
-            </div>
-          <% end %>
-        </div>
 
 
+    <%= render "form" %>
 
-        <div class="add-button-container">
-          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
-        </div>
-    <% end%>
+
+    <div class="mb-5 pb-5"></div>
   </div>
-
-
-<div class="mb-5 pb-5"></div>
