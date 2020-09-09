@@ -5,63 +5,41 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #232D3B;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 2rem;
+    color: #FFF3EC;
     line-height: 1.5em;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .shapes {
+    display: flex;
+    flex-direction: column;
+    margin: -25% auto 0 auto;
+  }
+
+  .shapes svg {
+    width: 40%;
+    margin: 10px auto;
   }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="shapes">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.2 33.2"><title>yellow-circle</title><rect width="33.2" height="33.2" rx="16.6" transform="translate(16.6 -6.88) rotate(45)" fill="#f9d062"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 23.47"><title>triangle-sand</title><polyline points="0 23.48 23.48 0 46.95 23.48" fill="#faeae1"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.95 46.95"><title>blue-square</title><rect x="6.88" y="6.88" width="33.2" height="33.2" transform="translate(23.47 -9.72) rotate(45)" fill="#559cad"/></svg>
+  </div>
+  <div class="m-3">
+    <h1>Oh no! This page doesn't seem to exist</h1>
   </div>
 </body>
 </html>

@@ -38,5 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   copyLink();
   categorySelect();
   // hideReveal();
-  const swup = new Swup();
+  if (document.querySelector(".registrations-new")){
+    const swup = new Swup();
+  }
 });

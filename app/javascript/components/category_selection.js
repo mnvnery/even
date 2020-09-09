@@ -1,10 +1,10 @@
 function categorySelect() {
-const rent = document.querySelector("#rent");
-const gas = document.querySelector("#gas");
-const electricity = document.querySelector("#electricity");
-const internet = document.querySelector("#internet");
-const water = document.querySelector("#water");
-const input = document.querySelector("#bill_category");
+  const rent = document.querySelector("#rent");
+  const gas = document.querySelector("#gas");
+  const electricity = document.querySelector("#electricity");
+  const internet = document.querySelector("#internet");
+  const water = document.querySelector("#water");
+  const input = document.querySelector("#bill_category");
 
   if (rent) {
     rent.addEventListener('click', function (){

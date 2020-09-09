@@ -1,5 +1,6 @@
 <h3 class="house-name mb-5"> Checkout summary</h3>
 
+<% if @house.stripe_uid.present? %>
 <% @shares.each do |share| %>
   <% if share.bill.house == @house %>
     <% if share.paid != true %>
@@ -12,31 +13,36 @@
             <% end %>
           <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
+
+  <div class="d-flex justify-content-center">
+    <h5 class="text-right"> Total amount: <%= humanized_money_with_symbol(@payment.even_amount/100) %> </h5>
+  </div>
+
+  <div class="card-bottom">
+    <%= link_to "Go back", :back, class: 'btn btn-info btn-sm' %>
+    <div class="form-actions next-button-container">
+    <button id="pay" class="btn btn-primary btn-sm">Pay</button>
+    </div>
+  </div>
+
+  <div class="my-5 py-5"></div>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const paymentButton = document.getElementById('pay');
+    paymentButton.addEventListener('click', () => {
+      const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+      stripe.redirectToCheckout({
+        sessionId: '<%= @payment.checkout_session_id %>'
+      });
+    });
+  </script>
+
+<% else %>
+       <a href="https://connect.stripe.com/express/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=ca_HzOmbYee9tNTgQcU1h1gy0moHeXQUVpk&state=onbrd_HzPwN8TxSDA45IEpfg6al7D0Te&stripe_user[country]=US"
+  >set up my free stripe account</a>
 <% end %>
 
-<div class="d-flex justify-content-center">
-  <h5 class="text-right"> Total amount: <%= humanized_money_with_symbol(@payment.even_amount/100) %> </h5>
-</div>
-
-<div class="card-bottom">
-  <%= link_to "Go back", :back, class: 'btn btn-info btn-sm' %>
-  <div class="form-actions next-button-container">
-  <button id="pay" class="btn btn-primary btn-sm">Pay</button>
-  </div>
-</div>
-
-<div class="my-5 py-5"></div>
-
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-  const paymentButton = document.getElementById('pay');
-  paymentButton.addEventListener('click', () => {
-    const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-    stripe.redirectToCheckout({
-      sessionId: '<%= @payment.checkout_session_id %>'
-    });
-  });
-</script>
