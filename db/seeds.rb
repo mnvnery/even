@@ -120,6 +120,9 @@ Membership.create!(user: User.find_by(name: 'Gabriel Neves'), house: House.find_
 Membership.create!(user: User.find_by(name: 'Maria Nery'), house: House.find_by(name: 'House Baratheon'))
 Membership.create!(user: User.find_by(name: 'Branca Chiotte'), house: House.find_by(name: 'House Baratheon'))
 
+puts "Created membership"
+
+
 
 # 16.times do |membership|
 #   membership = Membership.create(
@@ -127,6 +130,6 @@ Membership.create!(user: User.find_by(name: 'Branca Chiotte'), house: House.find
 #     house_id: House.ids.sample
 #   )
 # end
-puts "Created membership"
+
 
 puts "Finished!"

@@ -1,8 +1,16 @@
 <h3 class="house-name">Add a Bill</h3>
-
   <div class="bill-container">
     <%= simple_form_for [@house, @bill] do |f| %>
-        <%= f.input :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
+        <%= f.label :category %>
+        <div class="category-icons">
+          <span id='rent'><%= image_tag('rent.svg') %></span>
+          <span id="gas"><%= image_tag('gas.svg') %></span>
+          <span id="electricity"><%= image_tag('electricity.svg') %></span>
+          <span id="internet"><%= image_tag('internet.svg') %></span>
+          <span id="water"><%= image_tag('water.svg') %></span>
+        </div>
+
+        <%= f.hidden_field :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
 
         <div class="d-flex">
           <%= f.input :name, input_html: { maxlength: 15 } %>
@@ -17,22 +25,5 @@
           </span>
         </div>
 
-        <div class="member-shares-container">
-          <% @house.memberships.each do | membership | %>
-            <div class="member-share">
-              <p class="member-title"><%= membership.user.name.split(' ')[0] %></p>
-              <input class="form-control numeric integer optional member-value membership-bill-value" type="number" name="share[<%=membership.user.id%>]">
-            </div>
-          <% end %>
-        </div>
-
-
-
-        <div class="add-button-container">
-          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
-        </div>
-    <% end%>
+    <div class="mb-5 pb-5"></div>
   </div>
-
-
-<div class="mb-5 pb-5"></div>
