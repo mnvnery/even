@@ -19,12 +19,7 @@ class SharesController < ApplicationController
   end
 
   def update
-    @share = Share.find(params[:id])
-    if @share.update(share_params)
-      redirect_to houses_path
-    else
-      render :new
-    end
+
   end
 
 private

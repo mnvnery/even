@@ -1,5 +1,4 @@
 <h3 class="house-name">Edit Bill</h3>
-
 <div class="bill-container">
     <%= simple_form_for [@house, @bill] do |f| %>
         <%= f.label :category %>
@@ -33,21 +32,16 @@
             </div>
           <% end %>
         </div>
-
-
-        <div class="add-button-container">
-          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
-        </div>
-
-    <% end%>
-      <div class="mt-3">
-        <%= link_to "Delete Bill",
-        bill_path(@bill),
-        method: :delete,
-        data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block add-button" %>
-      </div>
+  
+  <div class="mt-3">
+    <%= link_to "Delete Bill",
+    bill_path(@bill),
+    method: :delete,
+    data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block add-button" %>
   </div>
 
 
 
-<div class="mb-5 pb-5"></div>
+
+  <div class="mb-5 pb-5"></div>
+</div>
