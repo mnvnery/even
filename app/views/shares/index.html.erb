@@ -2,7 +2,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0H24V24H0z"/><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12h2c0 4.418 3.582 8 8 8s8-3.582 8-8-3.582-8-8-8C9.25 4 6.824 5.387 5.385 7.5H8v2H2v-6h2V6c1.824-2.43 4.729-4 8-4zm1 5v4.585l3.243 3.243-1.415 1.415L11 12.413V7h2z" fill="rgba(255,243,236,1)"/></svg>
 <% end %>
 
- <h3 class="house-name" id="dashboard"> <%= @house.name %></h3>
+<h3 class="house-name" id="dashboard"> <%= @house.name %></h3>
 
 
 <div class="dashboard">
@@ -31,100 +31,10 @@
 </div>
 
 <!-- Show the 🐌 of the month -->
-<div class="text-center">
-  <div>
-    <!-- User with the fewest shares paid last month - 💵: -->
-    <% paid = []%>
-    <% @shares_paid_last_month.each do |share| %>
-      <% if share.bill.house == @house %>
-        <% paid << share.user.id %>
-      <% end   %>
-    <% end %>
-    <% paid_fewest = paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.min_by{|k,v| v} %>
-    <% paid_winner = []  %>
-    <% @users.each do |user| %>
-      <% paid_winner << user.name if user.id == paid_fewest[0] %>
-    <% end %>
-    <% paid_winner.first.split(' ').first  %>
-  </div>
-
-  <div>
-    <!-- User with the most shares unpaid last month - 💰: -->
-    <% unpaid = []%>
-    <% @shares_unpaid_last_month.each do |share| %>
-      <% if share.bill.house == @house %>
-        <% unpaid << share.user.id %>
-      <% end   %>
-    <% end %>
-    <% unpaid_most = paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.max_by{|k,v| v} %>
-    <% unpaid_winner = []  %>
-    <% @users.each do |user| %>
-      <% unpaid_winner << user.name if user.id == unpaid_most[0] %>
-    <% end %>
-    <% unpaid_winner.first.split(' ').first  %>
-  </div>
-
-  <div class="pt-3">
-    <!-- So who is the 🐌 of the month? -->
-    <% if paid_winner.first != unpaid_winner.first%>
-
-
-
-      <% @users.each do |user| %>
-       <% user.shares if paid.include?(user.id) %>
-      <% end %>
-      <% shares = [] %>
-      <% @shares_paid_last_month.each do |share| %>
-        <% if share.bill.house == @house %>
-          <% shares << {share.user.name => (share.created_at.to_i  - share.updated_at.to_i)} %>
-        <% end %>
-      <% end %>
-
-      <% shares %>
-      <% amount1 = 0 %>
-      <% amount2 = 0 %>
-      <% shares.each do |share| %>
-          <% amount1 += share[paid_winner.first] unless share[paid_winner.first].nil?  %>
-          <% amount2 += share[unpaid_winner.first] unless share[unpaid_winner.first].nil?  %>
-      <% end %>
-
-
-    <% end %>
-
-
-      <p>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Click to see <%= @house.name %>'s 🐌 of the month <%= Date.today.prev_month.strftime("%B") %>
-        </button>
-      </p>
 
 
 
 
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <div class="text-danger">
-            <% if amount1.nil? || amount2.nil? %>
-              <%= @winner = paid_winner.first.split(' ').first if amount1.nil?%>
-              <%= @winner = unpaid_winner.first.split(' ').first if amount1.nil? && amoun2.nil?%>
-              <%= @winner = unpaid_winner.first.split(' ').first if amount2.nil?%>
-              <% else %>
-              <% if amount1. > amount2 %>
-                <%= @winner = paid_winner.first.split(' ').first  %>
-              <% else  %>
-                <%= @winner = unpaid_winner.first.split(' ').first  %>
-              <% end %>
-            <% end %>
-         </div>
-          <p class="text-secondary">What the 🐌 has to do is...
-            deep clean the kitchen one time in <%= Date.today.strftime("%B")%> </p>
-        </div>
-      </div>
-
-  </div>
-</div>
-
-  <!-- Button to payments or display of no shares -->
 <div>
 
   <!-- Button to payments or display of no shares -->
@@ -165,24 +75,6 @@
 
 </div>
 
-<div class="history">
-<% @shares_all.each do |share| %>
-  <% if share.bill.house == @house %>
-    <% if share.paid %>
-      <div class='notification-card'>
-        <p class="text-muted mb-0"> <%= share.formated_paid_date %></p>
-        <div class="notification-row">
-            <h6>  <%= share.user.first_name %> has paid <br> <%= share.bill.name  %> </h6>
-            <% if @icon_names.include?(share.bill.category)%>
-              <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
-            <% end %>
-          <p class="share-amount">+<%= humanized_money_with_symbol(share.amount, :symbol_position => :after) %></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
-</div>
 
 <div class="my-5 py-5"></div>
 
