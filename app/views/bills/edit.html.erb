@@ -28,7 +28,7 @@
           <% @house.memberships.each do | membership | %>
             <div class="member-share">
               <p class="member-title"><%= membership.user.name.split(' ')[0] %></p>
-              <input class="form-control numeric integer optional member-value membership-bill-value" type="number" name="share[<%=membership.user.id%>]" value="<%= @bill.get_share_amount_by_user(membership.user) %>">
+              <input class="form-control numeric integer optional member-value membership-bill-value" type="text" name="share[<%=membership.user.id%>]" value="<%= @bill.get_share_amount_by_user(membership.user) %>">
             </div>
           <% end %>
         </div>
