@@ -1,0 +1,11 @@
+.transition-swipe {
+   transition: 500ms;
+   transform: translateX(0);
+   transform-origin: left;
+}
+
+html.is-animating .transition-swipe {
+  transform: translateX(100%);
+}
+
+

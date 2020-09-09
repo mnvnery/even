@@ -1,10 +1,17 @@
+.dashboard {
+  display: block;
+}
+.history {
+ display: none;
+}
+
 .house-name {
   margin-top: 3rem;
   text-align: center;
 }
 
 .graph-container{
-  margin: 3rem 2rem;
+  margin: 2rem 1rem;
   display: flex;
   justify-content: space-around;
 }
@@ -27,20 +34,19 @@
 }
 
 .even-up-button {
-  background: none;
+  background: $medium-blue;
   color: $light-sand;
   border-radius: $border-radius;
   border: none;
-  border: 1px solid $light-sand;
-  padding: 0.375rem 0.75rem;
-  // margin-left: 2rem;
+  padding: 0.2rem 0.85rem;
+  margin-right: 2rem;
   // margin-bottom: -0.5rem;
   // padding-left: 1rem;
 }
 
 .notification-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
 }
 
 .notification-row h4 {
@@ -48,8 +54,36 @@
   width: 150px;
 }
 
+.due-date {
+  opacity: 0.6;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.share-amount {
+ font-size: 16px;
+ text-align: right;
+
+}
+
 .history-icon {
   float: right;
   margin-right: 2rem;
 }
+
+.notifications-title {
+  margin-top: 0.65rem;
+  font-size:  1.25rem;
+  margin-left: 2rem;
+}
+.tube {
+  background-color: $medium-blue;
+  width: 59px;
+  height: 179px;
+  margin: 0 auto;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 0.7rem;
+}
+
 
