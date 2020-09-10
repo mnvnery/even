@@ -42,13 +42,16 @@
     <% end %>
     <% paid_fewest = paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.min_by{|k,v| v} %>
     <% paid_winner = []  %>
-    <% @users.each do |user| %>
-      <% paid_winner << user.name if user.id == paid_fewest[0] %>
-    <% end %>
-    <% paid_winner.first.split(' ').first  %>
+      <% if paid.nil? %>
+        <% @users.each do |user| %>
+          <% paid_winner << user.name if user.id == paid_fewest[0] %>
+        <% end %>
+        <% paid_winner.first.split(' ').first  %>
+      <% end %>
   </div>
 
   <div>
+
     <!-- User with the most shares unpaid last month - 💰: -->
     <% unpaid = []%>
     <% @shares_unpaid_last_month.each do |share| %>
@@ -58,10 +61,12 @@
     <% end %>
     <% unpaid_most = paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.max_by{|k,v| v} %>
     <% unpaid_winner = []  %>
-    <% @users.each do |user| %>
-      <% unpaid_winner << user.name if user.id == unpaid_most[0] %>
+    <% if unpaid.nil? %>
+      <% @users.each do |user| %>
+        <% unpaid_winner << user.name if user.id == unpaid_most[0] %>
+      <% end %>
+      <% unpaid_winner.first.split(' ').first  %>
     <% end %>
-    <% unpaid_winner.first.split(' ').first  %>
   </div>
 
   <div class="pt-3">
@@ -100,9 +105,7 @@
         <div class="card card-body">
           <div class="text-danger">
             <% if amount1.nil? || amount2.nil? %>
-              <%= @winner = paid_winner.first.split(' ').first if amount1.nil?%>
-              <%= @winner = unpaid_winner.first.split(' ').first if amount1.nil? && amoun2.nil?%>
-              <%= @winner = unpaid_winner.first.split(' ').first if amount2.nil?%>
+
               <% else %>
               <% if amount1. > amount2 %>
                 <%= @winner = paid_winner.first.split(' ').first  %>
@@ -181,6 +184,8 @@
 </div>
 
 <div class="my-5 py-5"></div>
+
+
 
 <script>
   setTimeout(function(){
