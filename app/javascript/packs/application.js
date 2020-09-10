@@ -31,7 +31,7 @@ import { addEventSplitButton } from '../components/split_even';
 import { copyLink } from '../components/copylink';
 import { categorySelect } from '../components/category_selection';
 // import { hideReveal } from '../components/dashboard_overview';
-import { reload } from '../components/reload_page';
+// import { reload } from '../components/reload_page';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   categorySelect();
   // hideReveal();
   if (document.querySelector(".shares-index")){
-    reload();
+    // reload();
   } else {
     clearTimeout(window.reload);
   }

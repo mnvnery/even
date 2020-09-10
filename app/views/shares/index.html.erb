@@ -1,7 +1,7 @@
 <div class="header-div">
   <h3 id="dashboard"> <%= @house.name %></h3>
   <div class="mt-1">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="margin-top: 0.2rem; margin-right: 1rem;"><path fill="none" d="M0 0h24v24H0z"/><path d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM1 5h2v4H1V5zm20 0h2v4h-2V5z" fill="rgba(255,243,236,1)"/></svg>
+    <button type="button" class="button-override" data-toggle="modal" data-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="margin-top: 0.2rem; margin-right: 1rem;"><path fill="none" d="M0 0h24v24H0z"/><path d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM1 5h2v4H1V5zm20 0h2v4h-2V5z" fill="rgba(255,243,236,1)"/></svg></button>
     <%= link_to history_house_shares_path(@house), class: 'history-icon' do %>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="margin-top: 0rem"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(255,243,236,1)"/></svg>
     <% end %>
@@ -37,13 +37,34 @@
 </div>
 
 <!-- Show the 🐌 of the month -->
-  <div class="text-center">
-    <div class="pt-3">
-      <p>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          🐌
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-      </p>
+      </div>
+      <div class="modal-body">
+        <% if @winner_last_month %>
+          <div class="modal-text">
+            <p>The 🐌 is <span style="color: #F8CF61"><%= @winner_last_month.name%></span> !!!</p>
+            <p>What the 🐌 has to do is... <br>
+              Deep clean the kitchen one time in <%= Date.today.strftime("%B")%>. </p>
+          </div>
+        <% else %>
+          <div class="modal-text">
+            <p>The 🐌 of the month award will appear here every month.</p>
+            <p>The slowest paying roommate gets awarded a wonderful 😂 task that helps the entire house.</p>
+            <p>Tasks will be different every month. The race begins now... 🏁 </p>
+            <p>Happy Even-ing Up! 🎉</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+      <!--
       <% if @winner_last_month %>
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
@@ -66,9 +87,7 @@
             </div>
           </div>
         <% end %>
-    </div>
-  </div>
-
+    -->
 
 
 <div>
@@ -78,7 +97,7 @@
  <% if current_user.shares.where(bill: @house.bills) == [] %>
     <h6 class="notifications-title ml-5">Notifications</h6>
       <div class='notification-card'>
-        <p class="mt-3 ml-2"> 😥 Your house has no bills yet. <br> Click on the plus button to start adding! 🎉</p>
+        <p class="mt-3 ml-2"> 😥 Your house has no bills yet. <br> Click the plus button to start adding! 🎉</p>
       </div>
   <% elsif current_user.shares.where(bill: @house.bills, paid: false || nil) == [] %>
     <%= form_tag house_payments_path(@house) do %>

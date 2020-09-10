@@ -1,0 +1,21 @@
+.modal-content {
+  background-color: $medium-blue;
+  color: $light-sand;
+  margin: 1rem;
+  border-radius: 30px;
+  padding: 1rem;
+}
+.modal-header {
+  border: none;
+  padding-bottom: 0px;
+}
+
+.close {
+  color: $light-sand;
+  opacity: 1;
+  text-shadow: none;
+}
+
+.modal-body {
+  opacity: 1;
+}
