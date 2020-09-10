@@ -18,3 +18,4 @@ class Share < ApplicationRecord
   end
 
 end
+

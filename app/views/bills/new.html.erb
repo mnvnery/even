@@ -9,14 +9,11 @@
           <span id="internet"><%= image_tag('internet.svg') %></span>
           <span id="water"><%= image_tag('water.svg') %></span>
         </div>
-
         <%= f.hidden_field :category, collection: ['rent', 'gas', 'electricity', 'internet', 'water'] %>
-
         <div class="d-flex">
           <%= f.input :name, input_html: { maxlength: 15 } %>
           <%= f.input :due_date, html5:true %>
         </div>
-
           <%= f.label :amount %>
         <div class="d-flex">
           <%= f.input_field :amount, class: "form-control", value: "" %>
@@ -32,7 +29,6 @@
             </div>
           <% end %>
         </div>
-
         <div class="add-button-container">
           <%= f.submit "Submit", class: "btn btn-primary add-button" %>
         </div>
