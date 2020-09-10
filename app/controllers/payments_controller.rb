@@ -36,7 +36,7 @@ class PaymentsController < ApplicationController
     redirect_to  house_pre_payment_path(house, payment)
   end
 
-private
+  private
 
   def mark_shares_paid(payment)
     if payment.state == 'paid'
@@ -45,5 +45,4 @@ private
       end
     end
   end
-
 end
