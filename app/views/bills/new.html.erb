@@ -24,6 +24,18 @@
             Evenly
           </span>
         </div>
+         <div class="member-shares-container">
+          <% @house.memberships.each do | membership | %>
+            <div class="member-share">
+              <p class="member-title"><%= membership.user.name.split(' ')[0] %></p>
+              <input class="form-control numeric integer optional member-value membership-bill-value" type="number" name="share[<%=membership.user.id%>]">
+            </div>
+          <% end %>
+        </div>
 
+        <div class="add-button-container">
+          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
+        </div>
+      <% end %>
     <div class="mb-5 pb-5"></div>
   </div>

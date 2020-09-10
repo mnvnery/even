@@ -2,28 +2,30 @@
 
 <h3 class="house-name mb-5"> Payment #<%= @payment.id %> <small><span class="badge badge-primary"></span></small></h3>
 
-<ul class="list-unstyled">
+<div class='notification-card'>
   <% if @payment.state == 'paid' %>
-    <li></strong> <%= @payment.created_at.to_date %></li>
-    <li><strong>TOTAL</strong> <%= humanized_money_with_symbol(@payment.even_amount/100) %></li>
-  <% end %>
-  <div class="py-3">
-    <li><% if @payment.state == 'paid' %></li>
-      <div class="text-success"> <%= @payment.state.to_s.upcase  %> </div>
-      <% else%>
-      <div class="text-danger"> Payment Was Not Completed. Please Complete Your Payment. </div>
-      <% end  %>
-  </div>
-  </li>
-</ul>
+    <p class="due-date"> <%= @payment.created_at.to_date %></p>
+    <div class="notification-row">
+    <h5>Total: <%= humanized_money_with_symbol(@payment.even_amount/100) %></h5>
 
-<div class="card-bottom">
-  <div class="form-actions next-button-container">
-   <% back = 'back to ' + @house.name %>
-    <button type="button" class="btn btn-link btn-outline-dark"><%= link_to back, house_shares_path(@house) %></button>
-  </div>
+  <% end %>
+  <% if @payment.state == 'paid' %>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.602 13.76l1.412 1.412 8.466-8.466 1.414 1.414-9.88 9.88-6.364-6.364 1.414-1.414 2.125 2.125 1.413 1.412zm.002-2.828l4.952-4.953 1.41 1.41-4.952 4.953-1.41-1.41zm-2.827 5.655L7.364 18 1 11.636l1.414-1.414 1.413 1.413-.001.001 4.951 4.951z" fill="rgba(129,179,163,1)"/></svg>
+    <p class="share-amount"><%= @payment.state.to_s.capitalize %></p>
+     </div>
+  <% else%>
+    <p class="mt-3 ml-2"> Payment was not completed. <br>Please complete your payments.</p>
+  <% end  %>
 </div>
 
+<div class="card-bottom">
+   <%= link_to 'Go Back', house_shares_path(@house), class: 'btn btn-info btn-sm'  %>
+</div>
+
+<div class="my-5 py-5"></div>
+
+
+<!-- -->
 <!--
 <div class="container">
   <div class="row py-4">

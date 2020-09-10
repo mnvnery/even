@@ -1,0 +1,5 @@
+meta_product_name: "Even"
+meta_title: "Even - Your bills, split evenly"
+meta_description: "Even is the free app to evenly split your house's bills. It will take the role of chief-bill payer so you don't have to."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+  # required for Twitter Cards
