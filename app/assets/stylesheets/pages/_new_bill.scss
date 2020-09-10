@@ -60,3 +60,12 @@
 .member-share {
   margin: 0.3rem;
 }
+
+.edit-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button {
+  background: $smooth-green !important;
+}

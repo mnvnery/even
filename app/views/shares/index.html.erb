@@ -46,7 +46,7 @@
       <div class='notification-card'>
         <p class="mt-3 ml-2"> 😥 Your house has no bills yet. <br> Click on the plus button to start adding! 🎉</p>
       </div>
-  <% elsif current_user.shares.where(bill: @house.bills, paid: false) == [] %>
+  <% elsif current_user.shares.where(bill: @house.bills, paid: false || nil) == [] %>
     <%= form_tag house_payments_path(@house) do %>
     <div class="d-flex justify-content-between">
       <h6 class="notifications-title">Notifications</h6>
