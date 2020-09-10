@@ -10,6 +10,12 @@
   text-align: center;
 }
 
+.real-house-name {
+  margin-top: 0.5rem;
+  text-align: left;
+  margin-left: 2rem;
+}
+
 .graph-container{
   margin: 2rem 1rem;
   display: flex;
@@ -66,11 +72,15 @@
 }
 
 .history-icon {
-  position: absolute;
-  top: 1.8rem;
-  right: 1.8rem;
+
 }
 
+.header-div {
+  margin: 1.5rem 1rem 0rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
 
 .notifications-title {
   margin-top: 0.65rem;
