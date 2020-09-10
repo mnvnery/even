@@ -12,9 +12,8 @@ class SharesController < ApplicationController
     @users = User.joins(:memberships).where(memberships: {house_id: @house.id})
   end
 
-
   def history
-    @shares_all = Share.all
+    @shares_all = Share.includes(:bill).order("bills.due_date")
     @house = House.find(params[:house_id])
   end
 
@@ -23,10 +22,9 @@ class SharesController < ApplicationController
   end
 
   def update
-
   end
 
-private
+  private
 
   def share_params
     params.require(:share).permit(:amount, :paid)
@@ -46,9 +44,3 @@ private
     end
   end
 end
-
-
-
-# Pseudocode:
-# need has with user and share
-
