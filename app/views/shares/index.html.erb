@@ -46,6 +46,19 @@
       <div class='notification-card'>
         <p class="mt-3 ml-2"> 😥 Your house has no bills yet. <br> Click on the plus button to start adding! 🎉</p>
       </div>
+  <% elsif current_user.shares.where(bill: @house.bills, paid: false) == [] %>
+    <%= form_tag house_payments_path(@house) do %>
+    <div class="d-flex justify-content-between">
+      <h6 class="notifications-title">Notifications</h6>
+      <%= button_tag :submit, class: 'even-up-button' do %>
+        Get even &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 10v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10h20zm0-2H2V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4zm-7 8v2h4v-2h-4z" fill="rgba(255,243,236,1)"/></svg>
+      <% end  %>
+    </div>
+    <% end %>
+    <div class='notification-card'>
+      <p class="mt-3 ml-2"> All your shares are paid! 💸😎</p>
+    </div>
+<!-- List of all Shares of the current user -->
   <% else %>
     <%= form_tag house_payments_path(@house) do %>
     <div class="d-flex justify-content-between">
@@ -55,23 +68,21 @@
       <% end  %>
     </div>
     <% end %>
-  <% end %>
-
-  <!-- List of all Shares of the current user -->
-  <% @shares.each do |share| %>
-    <% if share.bill.house == @house %>
-      <% if share.paid != true %>
-          <div class='notification-card'>
-            <p class="due-date"> <%= share.bill.formated_due_date %></p>
-            <div class="notification-row">
-                <h4><%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %></h4>
-                <% if @icon_names.include?(share.bill.category)%>
-                  <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
-                <% end %>
-              <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
-            </div>
-          </div>
-      <% end %>
+    <% @shares.each do |share| %>
+        <% if share.bill.house == @house %>
+          <% if share.paid != true %>
+              <div class='notification-card'>
+                <p class="due-date"> <%= share.bill.formated_due_date %></p>
+                <div class="notification-row">
+                    <h4><%= link_to share.bill.name,  edit_house_bill_path(share.bill.house_id, share.bill_id) %></h4>
+                    <% if @icon_names.include?(share.bill.category)%>
+                      <%= image_tag @icons_map[share.bill.category.to_sym], alt: "blue-logo", style: "width: 24px; margin-bottom: 0.8rem;" %>
+                    <% end %>
+                  <p class="share-amount"><%= humanized_money_with_symbol(share.amount) %></p>
+                </div>
+              </div>
+          <% end %>
+        <% end %>
     <% end %>
   <% end %>
 
