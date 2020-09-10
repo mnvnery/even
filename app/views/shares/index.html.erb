@@ -31,8 +31,9 @@
 </div>
 
 <!-- Show the 🐌 of the month -->
-<div class="text-center">
-  <div class="pt-3">
+<% if @winner_last_month %>
+  <div class="text-center">
+    <div class="pt-3">
       <p>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Click to see <%= @house.name %>'s 🐌 of the month <%= Date.today.prev_month.strftime("%B") %>
@@ -41,15 +42,16 @@
 
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
-          <div class="text-danger">
-            <%= @winner_last_month.name%>
-         </div>
-          <p class="text-secondary">What <%= @winner_last_month.name.split(' ').first %> the 🐌 has to do is...
-            deep clean the kitchen one time in <%= Date.today.strftime("%B")%> </p>
+            <div class="text-danger">
+              <%= @winner_last_month.name%>
+           </div>
+            <p class="text-secondary">What <%= @winner_last_month.name.split(' ').first %> the 🐌 has to do is...
+              deep clean the kitchen one time in <%= Date.today.strftime("%B")%> </p>
+          </div>
         </div>
-      </div>
+    </div>
   </div>
-</div>
+<% end %>
 
 
 <div>

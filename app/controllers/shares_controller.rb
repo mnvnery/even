@@ -75,20 +75,28 @@ private
   def paid_winner(shares_paid)
     paid_fewest = shares_paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.min_by{|k,v| v}
     if paid_fewest
-      paid_fewest[0].user
+      if paid_fewest.first.bill.house == @house
+        paid_fewest[0].user
+      else
+        nil
+      end
     end
   end
 
   def unpaid_winner(shares_unpaid)
     unpaid_most = shares_unpaid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.max_by{|k,v| v}
     if unpaid_most
-      unpaid_most[0].user
+      if unpaid_most.first.bill.house == @house
+        unpaid_most[0].user
+      else
+        nil
+      end
     end
   end
 
   def winner_last_month(unpaid_winner, paid_winner)
     if paid_winner.nil? && unpaid_winner.nil?
-      winner = 0
+      winner = nil
     elsif paid_winner.nil?
       winner = unpaid_winner
     elsif unpaid_winner.nil?
