@@ -31,71 +31,8 @@
 </div>
 
 <!-- Show the 🐌 of the month -->
-
 <div class="text-center">
-  <div>
-    <!-- User with the fewest shares paid last month - 💵: -->
-    <% paid = []%>
-    <% @shares_paid_last_month.each do |share| %>
-      <% if share.bill.house == @house %>
-        <% paid << share.user.id %>
-      <% end   %>
-    <% end %>
-    <% paid_fewest = paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.min_by{|k,v| v} %>
-    <% paid_winner = []  %>
-      <% if paid.nil? %>
-        <% @users.each do |user| %>
-          <% paid_winner << user.name if user.id == paid_fewest[0] %>
-        <% end %>
-        <% paid_winner.first.split(' ').first  %>
-      <% end %>
-  </div>
-
-  <div>
-
-    <!-- User with the most shares unpaid last month - 💰: -->
-    <% unpaid = []%>
-    <% @shares_unpaid_last_month.each do |share| %>
-      <% if share.bill.house == @house %>
-        <% unpaid << share.user.id %>
-      <% end   %>
-    <% end %>
-    <% unpaid_most = paid.reduce(Hash.new(0)) { |b, a| b.merge({a => b[a] + 1}) }.max_by{|k,v| v} %>
-    <% unpaid_winner = []  %>
-    <% if unpaid.nil? %>
-      <% @users.each do |user| %>
-        <% unpaid_winner << user.name if user.id == unpaid_most[0] %>
-      <% end %>
-      <% unpaid_winner.first.split(' ').first  %>
-    <% end %>
-  </div>
-
   <div class="pt-3">
-    <!-- So who is the 🐌 of the month? -->
-    <% if paid_winner.first != unpaid_winner.first%>
-
-
-
-      <% @users.each do |user| %>
-       <% user.shares if paid.include?(user.id) %>
-      <% end %>
-      <% shares = [] %>
-      <% @shares_paid_last_month.each do |share| %>
-        <% if share.bill.house == @house %>
-          <% shares << {share.user.name => (share.created_at.to_i  - share.updated_at.to_i)} %>
-        <% end %>
-      <% end %>
-
-      <% shares %>
-      <% amount1 = 0 %>
-      <% amount2 = 0 %>
-      <% shares.each do |share| %>
-          <% amount1 += share[paid_winner.first] unless share[paid_winner.first].nil?  %>
-          <% amount2 += share[unpaid_winner.first] unless share[unpaid_winner.first].nil?  %>
-      <% end %>
-
-    <% end %>
-
       <p>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Click to see <%= @house.name %>'s 🐌 of the month <%= Date.today.prev_month.strftime("%B") %>
@@ -105,24 +42,14 @@
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
           <div class="text-danger">
-            <% if amount1.nil? || amount2.nil? %>
-
-              <% else %>
-              <% if amount1. > amount2 %>
-                <%= @winner = paid_winner.first.split(' ').first  %>
-              <% else  %>
-                <%= @winner = unpaid_winner.first.split(' ').first  %>
-              <% end %>
-            <% end %>
+            <%= @winner_last_month.name%>
          </div>
-          <p class="text-secondary">What the 🐌 has to do is...
+          <p class="text-secondary">What <%= @winner_last_month.name.split(' ').first %> the 🐌 has to do is...
             deep clean the kitchen one time in <%= Date.today.strftime("%B")%> </p>
         </div>
       </div>
-
   </div>
 </div>
-
 
 
 <div>
