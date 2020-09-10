@@ -1,14 +1,16 @@
 .round-small-you {
-    display:block;
-    width:35px;
-    height:35px;
-    border: 2px solid $light-sand;
-    border-radius: 50%;
-    text-align: center;
-    background: $light-sand;
-    box-shadow: 1px 1px 5px $medium-blue;
-    margin-bottom: 20px;
-    margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:35px;
+  height:35px;
+  border: 2px solid $light-sand;
+  border-radius: 50%;
+  text-align: center;
+  background: $light-sand;
+  box-shadow: 1px 1px 5px $medium-blue;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .round-small-text {
@@ -19,42 +21,43 @@
 
 .round-small-you svg {
   fill: $medium-blue;
-  margin-top: 3px;
 }
 
 .round-small-house {
-    display:block;
-    width:35px;
-    height:35px;
-    border: 2px solid $smooth-green;
-    border-radius: 50%;
-    text-align: center;
-    background: $smooth-green;
-    box-shadow: 1px 1px 5px $medium-blue;
-    margin-bottom: 20px;
-    margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:35px;
+  height:35px;
+  border: 2px solid $smooth-green;
+  border-radius: 50%;
+  text-align: center;
+  background: $smooth-green;
+  box-shadow: 1px 1px 5px $medium-blue;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .round-small-house svg {
   fill: $medium-blue;
-  margin-top: 3px;
 }
 
 .round-small-settings {
-    display:block;
-    width:35px;
-    height:35px;
-    border: 2px solid $smooth-salmon;
-    border-radius: 50%;
-    text-align: center;
-    background: $smooth-salmon;
-    box-shadow: 1px 1px 5px $medium-blue;
-    margin-bottom: 20px;
-    margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:35px;
+  height:35px;
+  border: 2px solid $smooth-salmon;
+  border-radius: 50%;
+  text-align: center;
+  background: $smooth-salmon;
+  box-shadow: 1px 1px 5px $medium-blue;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .round-small-settings svg {
   fill: $medium-blue;
-  margin-top: 3px;
 }
 

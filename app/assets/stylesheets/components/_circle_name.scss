@@ -1,21 +1,18 @@
-.round-button-name {
-    display:block;
-    width:80px;
-    height:80px;
+.round-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
     border: 2px solid $light-sand;
     border-radius: 50%;
-    color:$medium-blue;
+    color: $medium-blue;
     text-align: center;
     text-decoration: none;
     background: $light-sand;
     box-shadow: 3px 3px 3px $medium-blue;
     margin: 0 auto;
 }
-.round-button-name h1 {
+.round-name h1 {
     margin-bottom: 0px;
-}
-
-.round-button-name:hover {
-    background: $medium-blue;
-    color:$light-sand;
 }
