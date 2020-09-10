@@ -7,9 +7,19 @@
   margin-top: -25%;
   animation-duration: 1s;
   animation-name: shapes;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: shapes;
 }
 
 @keyframes shapes {
+    from {
+        margin-top: -80%;
+    }
+    to {
+        margin-top: -25%;
+    }
+}
+@-webkit-keyframes shapes {
     from {
         margin-top: -80%;
     }
@@ -34,21 +44,31 @@ main h1{
 .start-button-container {
   width: 100%;
   position: fixed;
-  bottom: 5rem;
+  bottom: 65px;
   left: 0;
   animation-duration: 1s;
   animation-name: button-up;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: button-up;
 }
 
 @keyframes button-up {
     from {
-        bottom: -3rem;
+        bottom: -10px;
     }
     to {
-        bottom: 5rem;
+        bottom: 65px;
     }
 }
 
+@-webkit-keyframes button-up {
+    from {
+        bottom: -10px;
+    }
+    to {
+        bottom: 65px;
+    }
+}
 
 .start-button-container a {
   margin-left: auto;
