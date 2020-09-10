@@ -32,16 +32,14 @@
             </div>
           <% end %>
         </div>
-        <div class="add-button-container">
-          <%= f.submit "Submit", class: "btn btn-primary add-button" %>
+        <div class="edit-container">
+          <%= link_to "Delete Bill",
+            bill_path(@bill),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-danger add-button" %>
+          <%= f.submit "Submit Changes", class: "btn btn-danger submit-button" %>
         </div>
-<% end %>
-  <div class="mt-3">
-    <%= link_to "Delete Bill",
-    bill_path(@bill),
-    method: :delete,
-    data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block add-button" %>
-  </div>
+    <% end %>
 
 
 
