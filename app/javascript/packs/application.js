@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import Swup from 'swup';
+// import Swup from 'swup';
 
 // Internal imports, e.g:
 import { addEventSplitButton } from '../components/split_even';
@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   copyLink();
   categorySelect();
   // hideReveal();
-  if (document.querySelector(".registrations-new")){
-    const swup = new Swup();
-  }
+  //if (document.querySelector(".registrations-new")){
+    //const swup = new Swup();
+  //}
 });
