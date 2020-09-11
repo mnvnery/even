@@ -48,7 +48,7 @@
       <div class="modal-body">
         <% if @winner_last_month %>
           <div class="modal-text">
-            <p>The 🐌 is <span style="color: #F8CF61"><%= @winner_last_month.name%></span> !!!</p>
+            <p>The <%= Date.today.prev_month.strftime("%B") %> 🐌 award goes to <span style="color: #F8CF61"><%= @winner_last_month.first_name%></span> !!!</p>
             <p>What the 🐌 has to do is... <br>
               Deep clean the kitchen one time in <%= Date.today.strftime("%B")%>. </p>
           </div>

@@ -49,7 +49,6 @@ function categorySelect() {
   if (water) {
     water.addEventListener('click', function (){
         input.value = "water";
-        input.value = "internet";
         rent.style.opacity = "0.5"
         gas.style.opacity = "0.5"
         electricity.style.opacity = "0.5"
