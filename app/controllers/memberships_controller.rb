@@ -8,7 +8,7 @@ end
     @house = House.find(params[:house_id])
 
     @membership = Membership.find(params[:id])
-    if current_user.shares.where(bill: @house.bills) == []
+    if current_user.shares.where(bill: @house.bills, paid: nil) == []
       @membership.destroy
       redirect_to houses_path
     else
