@@ -1,22 +1,31 @@
-.carousel {
-  background: #EEE;
+.logo-carousel {
+  width: 150px;
+  margin: 2rem;
+  text-align: left;
 }
 
-.carousel-cell {
-  width: 100%;
-  height: 200px;
-  margin-right: 10px;
-  background: #8C8;
-  border-radius: 5px;
-  counter-increment: gallery-cell;
+.carousel .carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: $light-sand;
 }
 
-/* cell number */
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
+.carousel-inner {
+  height:600px !important;
 }
+
+.carousel-item {
+    position: relative;
+    height:100%;
+}
+
+
+.carousel-div {
+    margin: 1rem 1.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
