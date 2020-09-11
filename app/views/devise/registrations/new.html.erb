@@ -1,8 +1,4 @@
-<%= image_tag "capital-logo.png", alt: "logo", class: 'logo-top' %>
-
-<% if params[:house_id] %>
-  <h2><%= @house.name %></h2>
-<% end %>
+<%= image_tag "capital-logo.svg", alt: "logo", class: 'logo-top' %>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div class="card-container">
@@ -10,6 +6,9 @@
         <%= f.error_notification %>
         <div class="form-margins">
           <div class="form-inputs">
+            <% if params[:house_id] %>
+              <h2><%= @house.name %></h2>
+            <% end %>
             <%= f.input :name,
                         required: true,
                         autofocus: true %>

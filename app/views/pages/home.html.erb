@@ -1,5 +1,5 @@
-<main class="home-main">
-  <div id="shapes">
+<main>
+ <!-- <div id="shapes">
     <%= image_tag "yellow-circle.svg", alt: "circle", class: 'shape' %>
     <br>
     <%= image_tag "sand-triangle.svg", alt: "triangle", class: 'shape' %>
@@ -7,10 +7,50 @@
     <%= image_tag "blue-square.svg", alt: "square", class: 'shape' %>
     <h1>Even</h1>
   </div>
+-->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active home-main">
+      <div id="shapes">
+        <%= image_tag "yellow-circle.svg", alt: "circle", class: 'shape' %>
+        <br>
+        <%= image_tag "sand-triangle.svg", alt: "triangle", class: 'shape' %>
+        <br>
+        <%= image_tag "blue-square.svg", alt: "square", class: 'shape' %>
+        <h1>Even</h1>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "capital-logo.svg", alt: "logo", class: 'logo-carousel' %>
+      <div class="mt-5 pt-5"></div>
+      <div class="carousel-div">
+        <h4 class="mx-5 text-center">To everyone who’s ever been in charge of finance in a house share: <br><br> Bills, am I right? <br><br> 😱💸</h4>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "capital-logo.svg", alt: "logo", class: 'logo-carousel' %>
+      <div class="mt-5 pt-5"></div>
+        <div class="carousel-div">
+          <h4 class="mx-5 text-center">Even is here for housemates who just want to be good mates. <br><br> No money talk. No chief bill-payer. <br><br>❤️</h4>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "capital-logo.svg", alt: "logo", class: 'logo-carousel' %>
+      <div class="mt-5 pt-5"></div>
+        <div class="carousel-div">
+          <h4 class="mx-5 text-center">Expenses come out of a joint account. <br><br> Payments are easy and tracked. <br><br> The race for the quickest payer begins! <br><br>🎉 🏁</h4>
+        </div>
+    </div>
+  </div>
+</div>
 
-
-
-  <div class="start-button-container">
+  <div class="start-button-container home-main">
     <%= link_to new_user_registration_path, class: 'btn btn-danger' do %>
       <span>get started &nbsp;&nbsp;&nbsp;&nbsp; →</span>
     <% end %>
