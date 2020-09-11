@@ -2,10 +2,10 @@ class SharesController < ApplicationController
   layout "navbar"
 
   def index
-    @shares_all = Share.all
+    @shares_all = Share.includes(:bill).order("bills.due_date")
     # Problems with nil class solved with if statement in view:
     # @house_shares = Share.joins(:bills).where(bills: {house_id: @house})
-    @shares = Share.where(user: current_user)
+    @shares = Share.includes(:bill).where(user: current_user).order("bills.due_date")
     @house = House.find(params[:house_id])
     @shares_paid_last_month = Share.where(paid: true).where("shares.updated_at < ?", Date.today.at_beginning_of_month).where("shares.updated_at >= ?", Date.today.at_beginning_of_month.prev_month)
     @shares_unpaid_last_month = Share.where(paid: !true).where("shares.updated_at < ?", Date.today.at_beginning_of_month).where("shares.updated_at >= ?", Date.today.at_beginning_of_month.prev_month)
@@ -19,7 +19,7 @@ class SharesController < ApplicationController
   end
 
   def history
-    @shares_all = Share.includes(:bill).order("bills.due_date")
+    @shares_all = Share.order("shares.paid_date DESC")
     @house = House.find(params[:house_id])
   end
 
